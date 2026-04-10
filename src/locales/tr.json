@@ -1,0 +1,466 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "tools": "Araçlar",
+    "bat": "BAT Oluşturucu",
+    "serverjars": "Sunucu Jar'ları",
+    "mcping": "Sunucu Durumu",
+    "minimessage": "MiniMessage",
+    "smalltext": "Küçük Yazı",
+    "seedmap": "Seed Haritası",
+    "settings": "Ayarlar",
+    "nethercoords": "Nether Koordinatları",
+    "playerprofile": "Oyuncu Profili",
+    "servericon": "Sunucu İkonu",
+    "givecmd": "Give Komutu",
+    "about": "Hakkında",
+    "sponsor": "Sponsor",
+    "docs": "API Dokümantasyonu",
+    "status": "Durum",
+    "marketplace": "Marketplace"
+  },
+  "hero": {
+    "badge": "Minecraft Araç Paketi",
+    "title": "Her Minecraft",
+    "titleHighlight": "yöneticisi için",
+    "description": "Sunucu jar'ları, başlatma scriptleri, sunucu durumu, metin biçimlendirme — hepsi tek yerde. Ücretsiz, kayıt gerektirmez.",
+    "cta": "Araçlara Göz At",
+    "ctaSecondary": "Sunucu Durumunu Kontrol Et"
+  },
+  "quickLinks": {
+    "serverjars": "Paper & Leaf build'leri",
+    "bat": "Optimize başlatma scriptleri",
+    "mcping": "Java sunucu ping aracı",
+    "minimessage": "Metin biçimlendirme editörü"
+  },
+  "features": {
+    "title": "İhtiyacın olan her şey",
+    "subtitle": "Minecraft sunucu yöneticileri ve oyuncular için sürekli büyüyen bir araç koleksiyonu.",
+    "openTool": "Aracı aç",
+    "tools": {
+      "serverjars": {
+        "title": "Sunucu Jar'ları",
+        "description": "Paper ve Leaf sunucu build'lerini incele ve indir. Sürümler resmi API'lerden çekilir."
+      },
+      "bat": {
+        "title": "BAT Oluşturucu",
+        "description": "Aikar JVM bayraklarıyla Paper ve Leaf sunucuları için optimize Windows başlatma scripti oluştur."
+      },
+      "mcping": {
+        "title": "Sunucu Durumu",
+        "description": "Query protokolü gerekmeden herhangi bir Java sunucusunu pingla. Sürüm, oyuncu sayısı, MOTD ve gecikme bilgisi al."
+      },
+      "minimessage": {
+        "title": "MiniMessage Editörü",
+        "description": "Renkler, gradyanlar ve biçimlendirme etiketleriyle MiniMessage metni yaz ve önizle."
+      },
+      "smalltext": {
+        "title": "Küçük Yazı",
+        "description": "Normal metni küçük unicode karakterlere dönüştür. İsteğe bağlı ilk harf büyütme modu."
+      },
+      "nethercoords": {
+        "title": "Nether Koordinatları",
+        "description": "8:1 oranıyla Overworld ve Nether arasındaki portal koordinatlarını hesapla."
+      },
+      "playerprofile": {
+        "title": "Oyuncu Profili",
+        "description": "Herhangi bir Java Edition oyuncusunu sorgula — UUID, skin, pelerin ve daha fazlası."
+      },
+      "servericon": {
+        "title": "Sunucu İkonu",
+        "description": "Herhangi bir görseli Minecraft'a hazır 64×64 server-icon.png'ye dönüştür."
+      },
+      "givecmd": {
+        "title": "Give Komutu",
+        "description": "Herhangi bir Minecraft sürümü için büyülü /give komutu oluştur."
+      },
+      "seedmap": {
+        "title": "Seed Haritası",
+        "description": "Herhangi bir Minecraft seed'i için biyom dağılımını görselleştir."
+      }
+    }
+  },
+  "stats": {
+    "toolsLabel": "Mevcut Araç",
+    "freeValue": "100%",
+    "freeLabel": "Sonsuza Kadar Ücretsiz",
+    "loginValue": "0",
+    "loginLabel": "Giriş Gereksinimi"
+  },
+  "footer": {
+    "tagline": "Topluluk için, topluluk tarafından.",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "languageDesc": "Arayüz dili",
+    "version": "Sürüm",
+    "versionDesc": "Spoak Frontend"
+  },
+  "common": {
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "download": "İndir",
+    "close": "Kapat",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu."
+  },
+  "bat": {
+    "badge": "BAT Oluşturucu",
+    "title": "Başlatma Scripti Oluşturucu",
+    "description": "Minecraft sunucun için optimize edilmiş bir Windows başlatma scripti oluştur.",
+    "serverType": "Sunucu Türü",
+    "version": "Minecraft Sürümü",
+    "ram": "RAM Tahsisi",
+    "preview": "start.bat",
+    "downloadBtn": "start.bat İndir"
+  },
+  "serverjars": {
+    "badge": "Sunucu Jar'ları",
+    "title": "Sunucu Jar'larını İndir",
+    "description": "Paper ve Leaf sunucu build'lerini incele ve indir.",
+    "versionLabel": "Minecraft Sürümü",
+    "loadingVersions": "Sürümler yükleniyor...",
+    "loadingBuilds": "Build'ler getiriliyor...",
+    "noBuilds": "Build'leri görmek için bir sürüm seçin.",
+    "errorVersions": "Sürümler yüklenemedi. Backend'in çalıştığından emin ol.",
+    "errorBuilds": "Bu sürüm için build bulunamadı.",
+    "builds": "build",
+    "buildsPlural": "build",
+    "seeAll": "Tüm {{count}} build'i gör",
+    "showLess": "Daha az göster"
+  },
+  "mcping": {
+    "badge": "Sunucu Durumu",
+    "title": "MC Sunucu Ping",
+    "description": "Herhangi bir Java sunucusunu kontrol et — query protokolü gerekmez.",
+    "placeholder": "play.example.com veya play.example.com:25565",
+    "pingBtn": "Pingla",
+    "pinging": "Pingleniyor...",
+    "online": "Çevrimiçi",
+    "offline": "Çevrimdışı",
+    "players": "Oyuncular",
+    "version": "Sürüm",
+    "software": "Yazılım",
+    "protocol": "Protokol",
+    "latency": "Gecikme",
+    "onlinePlayers": "Çevrimiçi Oyuncular",
+    "errorBackend": "Backend'e ulaşılamadı. Çalıştığından emin ol.",
+    "showWidget": "Widget'ı Göster",
+    "widgetTitle": "Sunucu Durumu Widget'ı",
+    "widgetDesc": "Canlı sunucu durumunu web sitene gömmek için bu widget'ı kullan.",
+    "widgetPreview": "Önizleme",
+    "widgetCode": "Embed Kodu",
+    "widgetCopied": "Widget kodu panoya kopyalandı",
+    "widgetAutoUpdate": "* Widget 10 dakikada bir otomatik güncellenir"
+  },
+  "minimessage": {
+    "badge": "MiniMessage",
+    "title": "MiniMessage Editörü",
+    "description": "Editörde metin seç, ardından biçimlendirme uygulamak için bir araca tıkla.",
+    "format": "Biçim",
+    "colors": "Renkler",
+    "gradient": "Gradyan",
+    "applyGradient": "Uygula",
+    "examples": "Örnek",
+    "inputLabel": "MiniMessage",
+    "preview": "Önizleme",
+    "spans": "parça",
+    "spansPlural": "parça",
+    "plainText": "Düz metin",
+    "tagRef": "Etiket Referansı",
+    "selectFirst": "Biçimlendirme uygulamak için önce metin seç",
+    "copiedMsg": "Panoya kopyalandı"
+  },
+  "smalltext": {
+    "badge": "Küçük Yazı",
+    "title": "Küçük Yazı Dönüştürücü",
+    "description": "Normal metni küçük unicode karakterlere dönüştür.",
+    "toggleLabel": "İlk harfi büyüt",
+    "toggleDesc": "Her kelime normal büyük harfle başlar",
+    "inputLabel": "Giriş",
+    "outputLabel": "Çıkış",
+    "outputPlaceholder": "Çıkış burada görünecek...",
+    "charMap": "Karakter Haritası",
+    "copiedMsg": "Panoya kopyalandı"
+  },
+  "about": {
+    "badge": "Spoak Hakkında",
+    "title": "Minecraft topluluğu için yapıldı",
+    "description": "Spoak, Minecraft sunucu yöneticileri ve oyuncular için ücretsiz, açık kaynaklı bir araç koleksiyonudur. Reklam yok, kayıt yok, saçmalık yok.",
+    "openSource": "Açık Kaynak",
+    "openSourceDesc": "Spoak tamamen açık kaynaklıdır. Kod GitHub'da — katkılar, hata bildirimleri ve özellik istekleri her zaman açık.",
+    "fraio": "Bir Fraio Projesi",
+    "fraioDesc": "Spoak, Fraio bünyesinde geliştirilip sürdürülmektedir. Fraio, oyun toplulukları için açık araçlar üretir.",
+    "community": "Topluluk Odaklı",
+    "communityDesc": "Spoak'taki her araç, Minecraft topluluğunun gerçek ihtiyaçlarından doğdu. Bir fikrin mi var? Issue aç.",
+    "viewGithub": "GitHub'da Görüntüle",
+    "visitFraio": "Fraio'yu Ziyaret Et",
+    "tagline": "Spoak açık kaynaklı bir proje —",
+    "taglineSuffix": "organizasyonu bünyesinde, sonsuza kadar ücretsiz.",
+    "techStack": "Teknoloji Yığını"
+  },
+  "nethercoords": {
+    "badge": "Nether Koordinatları",
+    "title": "Nether Portal Hesaplayıcı",
+    "description": "Herhangi bir boyuttaki koordinatları gir — diğeri anında hesaplanır.",
+    "overworld": "Overworld",
+    "nether": "Nether",
+    "coordX": "X",
+    "coordZ": "Z",
+    "netherX": "Nether X",
+    "netherZ": "Nether Z",
+    "overworldX": "Overworld X",
+    "overworldZ": "Overworld Z",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "howItWorks": "Nasıl çalışır",
+    "howDesc": "Nether 8× daha küçüktür — Nether'daki 1 blok, Overworld'da 8 bloğa eşittir.",
+    "formulaOwToN": "OW → Nether: X ÷ 8, Z ÷ 8",
+    "formulaNToOw": "Nether → OW: X × 8, Z × 8",
+    "yNote": "Y koordinatı boyutlar arasında ölçeklenmez."
+  },
+  "playerprofile": {
+    "badge": "Oyuncu Profili",
+    "title": "Oyuncu Sorgula",
+    "description": "Herhangi bir Java Edition oyuncusunu sorgula — UUID, skin, pelerin ve daha fazlası.",
+    "placeholder": "Kullanıcı adı gir...",
+    "lookupBtn": "Sorgula",
+    "lookingUp": "Sorgulanıyor...",
+    "notFound": "\"{{name}}\" adlı oyuncu bulunamadı.",
+    "errorBackend": "Backend'e ulaşılamadı.",
+    "hasCape": "Pelerin Var",
+    "labelUsername": "Kullanıcı Adı",
+    "labelUuid": "UUID",
+    "labelUuidRaw": "UUID (ham)",
+    "labelSkinModel": "Skin modeli",
+    "labelCape": "Pelerin",
+    "capeYes": "Var",
+    "capeNone": "Yok",
+    "downloadSkin": "Skin İndir",
+    "downloadCape": "Pelerin İndir",
+    "copied": "kopyalandı"
+  },
+  "servericon": {
+    "badge": "Sunucu İkonu",
+    "title": "Sunucu İkonu Oluşturucu",
+    "description": "Herhangi bir görseli Minecraft'a hazır 64×64 server-icon.png'ye dönüştür.",
+    "dropText": "Görselini buraya bırak veya",
+    "dropBrowse": "gözat",
+    "dropFormats": "PNG, JPG, SVG, ICO desteklenir",
+    "processing": "İşleniyor...",
+    "labelOriginal": "Orijinal",
+    "labelResult": "Sonuç",
+    "resultMeta": "64×64 · PNG",
+    "downloadBtn": "server-icon.png İndir",
+    "convertAnother": "Başka bir görsel dönüştür",
+    "footerNote": "Minecraft, server-icon.png dosyasının tam olarak 64×64 piksel PNG formatında olmasını gerektirir.",
+    "errorType": "Desteklenmeyen dosya türü. PNG, JPG, SVG veya ICO kullan.",
+    "errorProcess": "Görsel işlenemedi.",
+    "downloaded": "server-icon.png indirildi"
+  },
+  "givecmd": {
+    "badge": "Give Komutu",
+    "title": "Give Komutu Oluşturucu",
+    "description": "Herhangi bir Minecraft sürümü için büyülü /give komutu oluştur.",
+    "versionLabel": "Minecraft Sürümü",
+    "formatComponents": "Components (1.20.5+)",
+    "formatNbt": "NBT (≤1.20.4)",
+    "playerLabel": "Oyuncu",
+    "countLabel": "Adet",
+    "categoryLabel": "Eşya Kategorisi",
+    "itemLabel": "Eşya",
+    "customNameLabel": "Özel İsim",
+    "customNameOptional": "(isteğe bağlı)",
+    "customNamePlaceholder": "örn. Excalibur",
+    "enchantmentsLabel": "Büyüler",
+    "enchantmentsSelected": "{{count}} seçili",
+    "noEnchantments": "Bu eşya türü için büyü yok.",
+    "maxLevel": "maks {{level}}",
+    "commandLabel": "Komut",
+    "copyCommand": "Komutu Kopyala",
+    "commandCopied": "Komut kopyalandı",
+    "loadingVersions": "Sürümler yükleniyor...",
+    "errorVersions": "Sürümler yüklenemedi."
+  },
+  "sidebar": {
+    "favorites": "Favoriler",
+    "searchPlaceholder": "Araç ara...",
+    "noToolsFound": "Araç bulunamadı.",
+    "addFavorite": "Favorilere ekle",
+    "removeFavorite": "Favorilerden kaldır",
+    "apiStatus": "API",
+    "apiOnline": "Çevrimiçi",
+    "apiOffline": "Çevrimdışı"
+  },
+  "sponsors": {
+    "badge": "Sponsorlar",
+    "title": "Spoak'ı Destekle",
+    "description": "Spoak ücretsiz ve açık kaynaklıdır. Faydalı buluyorsan sponsor olarak projenin büyümesine katkıda bulunabilirsin.",
+    "whyTitle": "Neden sponsor olmalısın?",
+    "whyDesc": "Desteğin sunucu maliyetlerini ve geliştirme süresini karşılamaya yardımcı olur; Spoak'ı herkes için reklamsız tutar.",
+    "perks": [
+      "Spoak'ı ücretsiz ve reklamsız tut",
+      "Süregelen geliştirmeyi destekle",
+      "Sponsor listesinde adın yer alsın",
+      "Daha fazla araç eklenmesine katkı sağla"
+    ],
+    "cta": "GitHub'da Sponsor Ol",
+    "cryptoTitle": "Kripto ile bağış",
+    "cryptoDesc": "Kripto para ile de destek olabilirsin. Adresi kopyalamak için butona tıkla.",
+    "cryptoCopied": "Adres kopyalandı!",
+    "donateBtn": "Kripto ile Bağış Yap",
+    "donateTitle": "Kripto Bağış",
+    "network": "Ağ",
+    "address": "Adres",
+    "openWallet": "Cüzdanı Aç",
+    "qrHint": "Mobil cüzdanınla QR'ı tara ya da masaüstünde Cüzdanı Aç'a tıkla",
+    "connectWallet": "Cüzdan Bağla",
+    "connectToSend": "ETH göndermek için cüzdanını bağla",
+    "balance": "Bakiye",
+    "send": "Gönder",
+    "sending": "Gönderiliyor...",
+    "txSuccess": "İşlem gönderildi!",
+    "txError": "İşlem başarısız",
+    "thanks": "Bu projeyi destekleyen herkese teşekkürler ♥"
+  },
+  "seedmap": {
+    "badge": "Seed Haritası",
+    "title": "Seed Haritası Görüntüleyici",
+    "description": "Herhangi bir Minecraft seed'i için biyom dağılımını görselleştir. Seed gir ve haritayı oluştur.",
+    "seedLabel": "Seed",
+    "seedPlaceholder": "örn. -4804349823814383506",
+    "versionLabel": "MC Sürümü",
+    "generateBtn": "Oluştur",
+    "placeholder": "Seed gir ve Oluştur'a tıkla",
+    "orbitHint": "Sürükle: kaydır · Kaydır: yakınlaştır",
+    "structures": "Yapılar",
+    "error": "Harita oluşturulamadı. Backend'in çalıştığından emin ol."
+  },
+  "marketplace": {
+    "badge": "Marketplace",
+    "title": "Plugin Marketplace",
+    "description": "Modrinth'ten Minecraft plugin'lerini keşfet. Herhangi bir plugin'e tıklayarak Modrinth'te görüntüle.",
+    "searchPlaceholder": "Plugin ara...",
+    "searchBtn": "Ara",
+    "showing": "{{total}} plugin'den {{from}}–{{to}} arası gösteriliyor",
+    "downloads": "İndirme",
+    "follows": "Takip",
+    "sort": {
+      "relevance": "Alaka",
+      "downloads": "En Çok İndirilen",
+      "follows": "En Çok Takip Edilen",
+      "newest": "En Yeni",
+      "updated": "Son Güncellenen"
+    },
+    "downloadTitle": "İndir",
+    "gameVersion": "Oyun Sürümü",
+    "selectGameVersion": "Sürüm seçin",
+    "software": "Yazılım (Loader)",
+    "selectSoftware": "Yazılım seçin",
+    "downloadBtn": "İndir",
+    "noVersionFound": "Bu kombinasyon için sürüm bulunamadı",
+    "download": "İndir"
+  },
+  "status": {
+    "badge": "Sistem Durumu",
+    "title": "API Durumu",
+    "description": "Tüm Spoak backend servislerinin anlık durumu.",
+    "allOperational": "Tüm sistemler çalışıyor",
+    "degraded": "Bazı servisler kullanılamıyor",
+    "checking": "Servisler kontrol ediliyor...",
+    "lastChecked": "Son kontrol:",
+    "refresh": "Yenile",
+    "autoRefresh": "Her 5 dakikada bir otomatik yenilenir",
+    "services": {
+      "health":   { "label": "Backend Sağlığı",    "description": "Ana API sunucusu" },
+      "versions": { "label": "Mojang Sürümleri",   "description": "Mojang'dan Minecraft sürüm listesi" },
+      "paper":    { "label": "PaperMC API",         "description": "Paper sunucu build'leri" },
+      "leaf":     { "label": "Leaf API",            "description": "Leaf sunucu build'leri" },
+      "mcping":   { "label": "MC Ping",             "description": "Minecraft sunucu ping endpoint'i" },
+      "seedmap":  { "label": "Seed Haritası",       "description": "Biyom tile üretimi (cubiomes)" }
+    }
+  },
+  "errors": {
+    "notFound": "Sayfa bulunamadı",
+    "notFoundDesc": "Aradığın sayfa mevcut değil ya da taşınmış olabilir.",
+    "serverError": "Bir şeyler ters gitti",
+    "serverErrorDesc": "Beklenmedik bir hata oluştu. Tekrar deneyebilir ya da ana sayfaya dönebilirsin.",
+    "criticalError": "Kritik bir hata oluştu",
+    "criticalErrorDesc": "Uygulama beklenmedik bir hatayla karşılaştı.",
+    "retry": "Tekrar dene",
+    "goHome": "Ana sayfaya dön",
+    "errorCode": "Hata kodu"
+  },
+  "docs": {
+    "badge": "API Referansı",
+    "title": "Backend API Dokümantasyonu",
+    "description": "Spoak backend REST API için tam referans. Temel URL: http://localhost:4000/api",
+    "baseUrl": "Temel URL",
+    "method": "Metod",
+    "endpoint": "Endpoint",
+    "description_col": "Açıklama",
+    "response": "Yanıt",
+    "params": "Parametreler",
+    "example": "Örnek",
+    "techStack": "Teknoloji Yığını",
+    "techDesc": "Backend, Axum, Tokio ve Reqwest kullanılarak Rust ile geliştirilmiştir. Mojang, PaperMC ve Leaf API'lerine istek proxy'ler.",
+    "sections": {
+      "serverjars": "Sunucu Jar'ları",
+      "mcping": "Sunucu Ping",
+      "player": "Oyuncu Profili",
+      "seedmap": "Seed Haritası"
+    },
+    "endpoints": {
+      "versions": {
+        "summary": "Tüm Minecraft sürümlerini getir",
+        "detail": "Mojang sürüm manifestinden alınan kararlı Java Edition sürümlerinin listesini döndürür. En yeniden eskiye sıralı."
+      },
+      "paperBuilds": {
+        "summary": "Bir sürüm için Paper build'lerini getir",
+        "detail": "Verilen Minecraft sürümü için mevcut tüm Paper build'lerini döndürür. En yeniden eskiye sıralı."
+      },
+      "paperLatest": {
+        "summary": "En son kararlı Paper build'ini getir",
+        "detail": "Verilen sürüm için en son kararlı Paper build'ini döndürür."
+      },
+      "leafBuilds": {
+        "summary": "Bir sürüm için Leaf build'lerini getir",
+        "detail": "Leaf API'sinden alınan, verilen sürüm için mevcut tüm Leaf build'lerini döndürür."
+      },
+      "mcping": {
+        "summary": "Bir Minecraft sunucusunu pingla",
+        "detail": "Server List Ping protokolüyle bir Java Edition sunucusunu pinglar. Query protokolü gerekmez. Sürüm, oyuncu sayısı, MOTD, favicon ve gecikme döndürür."
+      },
+      "player": {
+        "summary": "Oyuncu profilini sorgula",
+        "detail": "Mojang API'sinden oyuncunun UUID'sini, kullanıcı adını, skin URL'sini, pelerin URL'sini ve skin modelini getirir."
+      },
+      "seedmapVersions": {
+        "summary": "Desteklenen seed haritası sürümlerini getir",
+        "detail": "Biyom üreticisi tarafından desteklenen Minecraft sürümlerinin listesini döndürür."
+      },
+      "seedmapTile": {
+        "summary": "Biyom tile'ı oluştur",
+        "detail": "Ham biyom verisini binary octet-stream olarak döndürür. Her biyom ID'si işaretli 16-bit little-endian tam sayı olarak kodlanır. Tile, 4 ölçeğinde örneklenmiş size×size biyom ID'sinden oluşur (4 blokta 1 örnek)."
+      },
+      "seedmapStructures": {
+        "summary": "Bir konumun yakınındaki yapıları bul",
+        "detail": "Belirtilen koordinatlar etrafındaki verilen yarıçap içindeki yapı işaretçilerinin (köy, anıt, malikane vb.) listesini döndürür."
+      }
+    },
+    "paramHost": "Sunucu hostname veya IP",
+    "paramPort": "Sunucu portu (varsayılan: 25565)",
+    "paramVersion": "Minecraft sürümü (örn. 1.21.4)",
+    "paramUsername": "Minecraft kullanıcı adı",
+    "paramSeed": "Sayısal seed veya string (otomatik hash'lenir)",
+    "paramX": "Merkez X koordinatı (blok)",
+    "paramZ": "Merkez Z koordinatı (blok)",
+    "paramSize": "Biyom örneği cinsinden tile boyutu (32–256, varsayılan: 128)",
+    "paramRadius": "Blok cinsinden arama yarıçapı (256–4096, varsayılan: 1024)",
+    "envTitle": "Ortam Değişkenleri",
+    "envPort": "Sunucunun dinlediği port",
+    "envDefault": "Varsayılan"
+  }
+}

@@ -1,0 +1,9 @@
+<svg width="200" height="200" viewBox="55 45 90 110" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#a)">
+    <path d="m100 50 40 40-40 60-40-60Z" fill="#7c5af3"/>
+    <path d="M100 50 60 90h40Z" fill="#fff" opacity=".4"/>
+    <path d="m100 50 40 40h-40Z" fill="#fff" opacity=".15"/>
+    <path d="m60 90 40 60V90Z" opacity=".1"/>
+    <path d="m140 90-40 60V90Z" opacity=".3"/>
+  </g>
+</svg>

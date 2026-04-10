@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Spoak Banner](readmd/spoakbanner.png)
 
-## Getting Started
+# Spoak Frontend v0.1
 
-First, run the development server:
+Minecraft sunucu yöneticileri ve oyuncuları için araç koleksiyonu. Next.js 16 ile geliştirilmiş, Rust tabanlı [spoak-backend](https://github.com/spoakk/backend) ile çalışır.
+
+[![GitHub](https://img.shields.io/badge/GitHub-spoakk%2Fbackend-181717?logo=github)](https://github.com/spoakk/backend)
+
+## Araçlar
+
+| Araç | Açıklama |
+|------|----------|
+| Server Jars | Leaf, Paper gibi sunucu jar dosyalarını indir |
+| BAT Generator | Sunucu başlatma script'i oluştur |
+| MC Ping | Minecraft sunucusunu ping'le, oyuncu listesini gör |
+| MiniMessage | MiniMessage formatını önizle ve düzenle |
+| Small Text | Unicode küçük metin dönüştürücü |
+| Nether Coords | Overworld ↔ Nether koordinat hesaplayıcı |
+| Player Profile | UUID, skin ve oyuncu bilgilerini sorgula |
+| Server Icon | 64×64 sunucu ikonu oluştur ve önizle |
+| Give Command | `/give` komutu oluşturucu |
+| Seed Map | Minecraft dünya seed haritası görüntüleyici |
+
+## Kurulum
+
+```bash
+npm install
+```
+
+## Geliştirme
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Ortam Değişkenleri
 
-## Learn More
+`.env.example` dosyasını `.env.local` olarak kopyalayıp doldurun:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cp .env.example .env.local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Değişken | Açıklama |
+|----------|----------|
+| `NEXT_PUBLIC_API_URL` | Backend API adresi |
+| `NEXT_PUBLIC_SITE_NAME` | Site adı |
+| `NEXT_PUBLIC_DEFAULT_LOCALE` | Varsayılan dil (`en` veya `tr`) |
+| `NEXT_PUBLIC_REOWN_PROJECT_ID` | Reown (WalletConnect) proje ID'si |
+| `NEXT_PUBLIC_SENTRY_DSN` | Sentry DSN |
+| `SENTRY_ORG` | Sentry organizasyon adı |
+| `SENTRY_PROJECT` | Sentry proje adı |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Teknolojiler
 
-## Deploy on Vercel
+- [Next.js 16](https://nextjs.org) — React framework
+- [Tailwind CSS 4](https://tailwindcss.com) — Stil
+- [Framer Motion](https://www.framer.com/motion) — Animasyonlar
+- [TanStack Query](https://tanstack.com/query) — Veri yönetimi
+- [i18next](https://www.i18next.com) — Çoklu dil (TR/EN)
+- [skinview3d](https://github.com/bs-community/skinview3d) — 3D skin renderer
+- [Sentry](https://sentry.io) — Hata takibi
+- [Reown AppKit](https://reown.com) — Web3 cüzdan bağlantısı
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Linkler
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [GitHub](https://github.com/spoakk)
+- [Discord](https://discord.gg/SBbU3rCtGe)

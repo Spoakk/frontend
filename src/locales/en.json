@@ -1,0 +1,466 @@
+{
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "bat": "BAT Generator",
+    "serverjars": "Server Jars",
+    "mcping": "Server Status",
+    "minimessage": "MiniMessage",
+    "smalltext": "Small Text",
+    "seedmap": "Seed Map",
+    "settings": "Settings",
+    "nethercoords": "Nether Coords",
+    "playerprofile": "Player Profile",
+    "servericon": "Server Icon",
+    "givecmd": "Give Command",
+    "about": "About",
+    "sponsor": "Sponsor",
+    "docs": "API Docs",
+    "status": "Status",
+    "marketplace": "Marketplace"
+  },
+  "hero": {
+    "badge": "Minecraft Utility Suite",
+    "title": "Tools for every",
+    "titleHighlight": "Minecraft admin",
+    "description": "Server jars, start scripts, server status, text formatting — everything in one place. Free, no login required.",
+    "cta": "Browse Tools",
+    "ctaSecondary": "Check Server Status"
+  },
+  "quickLinks": {
+    "serverjars": "Paper & Leaf builds",
+    "bat": "Optimized start scripts",
+    "mcping": "Java server ping tool",
+    "minimessage": "Text formatting editor"
+  },
+  "features": {
+    "title": "Everything you need",
+    "subtitle": "A growing collection of tools built for Minecraft server admins and players.",
+    "openTool": "Open tool",
+    "tools": {
+      "serverjars": {
+        "title": "Server Jars",
+        "description": "Browse and download Paper and Leaf server builds. Versions sourced directly from official APIs."
+      },
+      "bat": {
+        "title": "BAT Generator",
+        "description": "Generate optimized Windows start scripts for Paper and Leaf servers with Aikar's JVM flags."
+      },
+      "mcping": {
+        "title": "Server Status",
+        "description": "Ping any Java server without query protocol. Get version, player count, MOTD and latency."
+      },
+      "minimessage": {
+        "title": "MiniMessage Editor",
+        "description": "Write and preview MiniMessage formatted text with colors, gradients and formatting tags."
+      },
+      "smalltext": {
+        "title": "Small Text",
+        "description": "Convert normal text to small caps unicode characters. Optional capitalize-first mode."
+      },
+      "nethercoords": {
+        "title": "Nether Coords",
+        "description": "Calculate portal coordinates between Overworld and Nether using the 8:1 ratio."
+      },
+      "playerprofile": {
+        "title": "Player Profile",
+        "description": "Look up any Java Edition player — UUID, skin, cape and more."
+      },
+      "servericon": {
+        "title": "Server Icon",
+        "description": "Convert any image to a 64×64 server-icon.png ready for Minecraft."
+      },
+      "givecmd": {
+        "title": "Give Command",
+        "description": "Build a /give command with enchantments for any Minecraft version."
+      },
+      "seedmap": {
+        "title": "Seed Map",
+        "description": "Visualize biome distribution for any Minecraft seed. Enter a seed and generate the map."
+      }
+    }
+  },
+  "stats": {
+    "toolsLabel": "Tools Available",
+    "freeValue": "100%",
+    "freeLabel": "Free Forever",
+    "loginValue": "0",
+    "loginLabel": "Login Required"
+  },
+  "footer": {
+    "tagline": "Built for the community, by the community.",
+    "rights": "All rights reserved."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageDesc": "Interface language",
+    "version": "Version",
+    "versionDesc": "Spoak Frontend"
+  },
+  "common": {
+    "copy": "Copy",
+    "copied": "Copied!",
+    "download": "Download",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "An error occurred."
+  },
+  "bat": {
+    "badge": "BAT Generator",
+    "title": "Start Script Generator",
+    "description": "Generate an optimized Windows start script for your Minecraft server.",
+    "serverType": "Server Type",
+    "version": "Minecraft Version",
+    "ram": "RAM Allocation",
+    "preview": "start.bat",
+    "downloadBtn": "Download start.bat"
+  },
+  "serverjars": {
+    "badge": "Server Jars",
+    "title": "Download Server Jars",
+    "description": "Browse and download Paper and Leaf server builds.",
+    "versionLabel": "Minecraft Version",
+    "loadingVersions": "Loading versions...",
+    "loadingBuilds": "Fetching builds...",
+    "noBuilds": "Select a version to see builds.",
+    "errorVersions": "Failed to load versions. Make sure the backend is running.",
+    "errorBuilds": "No builds found for this version.",
+    "builds": "build",
+    "buildsPlural": "builds",
+    "seeAll": "See all {{count}} builds",
+    "showLess": "Show less"
+  },
+  "mcping": {
+    "badge": "Server Status",
+    "title": "MC Server Ping",
+    "description": "Check any Java server — no query protocol needed.",
+    "placeholder": "play.example.com or play.example.com:25565",
+    "pingBtn": "Ping",
+    "pinging": "Pinging...",
+    "online": "Online",
+    "offline": "Offline",
+    "players": "Players",
+    "version": "Version",
+    "software": "Software",
+    "protocol": "Protocol",
+    "latency": "Latency",
+    "onlinePlayers": "Online Players",
+    "errorBackend": "Failed to reach the backend. Make sure it's running.",
+    "showWidget": "Show Widget",
+    "widgetTitle": "Server Status Widget",
+    "widgetDesc": "Embed this widget on your website to display live server status.",
+    "widgetPreview": "Preview",
+    "widgetCode": "Embed Code",
+    "widgetCopied": "Widget code copied to clipboard",
+    "widgetAutoUpdate": "* Widget auto-updates every 10 minutes"
+  },
+  "minimessage": {
+    "badge": "MiniMessage",
+    "title": "MiniMessage Editor",
+    "description": "Select text in the editor, then click a tool to apply formatting.",
+    "format": "Format",
+    "colors": "Colors",
+    "gradient": "Gradient",
+    "applyGradient": "Apply",
+    "examples": "Example",
+    "inputLabel": "MiniMessage",
+    "preview": "Preview",
+    "spans": "span",
+    "spansPlural": "spans",
+    "plainText": "Plain text",
+    "tagRef": "Tag Reference",
+    "selectFirst": "Select some text first to apply formatting",
+    "copiedMsg": "Copied to clipboard"
+  },
+  "smalltext": {
+    "badge": "Small Text",
+    "title": "Small Text Converter",
+    "description": "Convert normal text to small caps unicode characters.",
+    "toggleLabel": "Capitalize first letter",
+    "toggleDesc": "Each word starts with a normal uppercase letter",
+    "inputLabel": "Input",
+    "outputLabel": "Output",
+    "outputPlaceholder": "Output will appear here...",
+    "charMap": "Character Map",
+    "copiedMsg": "Copied to clipboard"
+  },
+  "about": {
+    "badge": "About Spoak",
+    "title": "Built for the Minecraft community",
+    "description": "Spoak is a free, open-source collection of utility tools for Minecraft server administrators and players. No ads, no login, no nonsense.",
+    "openSource": "Open Source",
+    "openSourceDesc": "Spoak is fully open source. The code is on GitHub — contributions, bug reports and feature requests are always welcome.",
+    "fraio": "A Fraio Project",
+    "fraioDesc": "Spoak is developed and maintained under the Fraio organization. Fraio builds open tools for gaming communities.",
+    "community": "Community Driven",
+    "communityDesc": "Every tool on Spoak was built from real needs in the Minecraft community. Have an idea? Open an issue.",
+    "viewGithub": "View on GitHub",
+    "visitFraio": "Visit Fraio",
+    "tagline": "Spoak is an open-source project —",
+    "taglineSuffix": "under the Fraio organization, free forever.",
+    "techStack": "Tech Stack"
+  },
+  "nethercoords": {
+    "badge": "Nether Coords",
+    "title": "Nether Portal Calculator",
+    "description": "Enter coordinates in either dimension — the other is calculated instantly.",
+    "overworld": "Overworld",
+    "nether": "Nether",
+    "coordX": "X",
+    "coordZ": "Z",
+    "netherX": "Nether X",
+    "netherZ": "Nether Z",
+    "overworldX": "Overworld X",
+    "overworldZ": "Overworld Z",
+    "copy": "Copy",
+    "copied": "Copied",
+    "howItWorks": "How it works",
+    "howDesc": "The Nether is 8× smaller — 1 block in the Nether equals 8 blocks in the Overworld.",
+    "formulaOwToN": "OW → Nether: X ÷ 8, Z ÷ 8",
+    "formulaNToOw": "Nether → OW: X × 8, Z × 8",
+    "yNote": "Y coordinate does not scale between dimensions."
+  },
+  "playerprofile": {
+    "badge": "Player Profile",
+    "title": "Player Lookup",
+    "description": "Look up any Java Edition player — UUID, skin, cape and more.",
+    "placeholder": "Enter username...",
+    "lookupBtn": "Look up",
+    "lookingUp": "Looking up...",
+    "notFound": "Player \"{{name}}\" not found.",
+    "errorBackend": "Failed to reach backend.",
+    "hasCape": "Has Cape",
+    "labelUsername": "Username",
+    "labelUuid": "UUID",
+    "labelUuidRaw": "UUID (raw)",
+    "labelSkinModel": "Skin model",
+    "labelCape": "Cape",
+    "capeYes": "Yes",
+    "capeNone": "None",
+    "downloadSkin": "Download Skin",
+    "downloadCape": "Download Cape",
+    "copied": "copied"
+  },
+  "servericon": {
+    "badge": "Server Icon",
+    "title": "Server Icon Generator",
+    "description": "Convert any image to a 64×64 server-icon.png ready for Minecraft.",
+    "dropText": "Drop your image here or",
+    "dropBrowse": "browse",
+    "dropFormats": "PNG, JPG, SVG, ICO supported",
+    "processing": "Processing...",
+    "labelOriginal": "Original",
+    "labelResult": "Result",
+    "resultMeta": "64×64 · PNG",
+    "downloadBtn": "Download server-icon.png",
+    "convertAnother": "Convert another image",
+    "footerNote": "Minecraft requires server-icon.png to be exactly 64×64 pixels in PNG format.",
+    "errorType": "Unsupported file type. Use PNG, JPG, SVG or ICO.",
+    "errorProcess": "Failed to process image.",
+    "downloaded": "Downloaded server-icon.png"
+  },
+  "givecmd": {
+    "badge": "Give Command",
+    "title": "Give Command Generator",
+    "description": "Build a /give command with enchantments for any Minecraft version.",
+    "versionLabel": "Minecraft Version",
+    "formatComponents": "Components (1.20.5+)",
+    "formatNbt": "NBT (≤1.20.4)",
+    "playerLabel": "Player",
+    "countLabel": "Count",
+    "categoryLabel": "Item Category",
+    "itemLabel": "Item",
+    "customNameLabel": "Custom Name",
+    "customNameOptional": "(optional)",
+    "customNamePlaceholder": "e.g. Excalibur",
+    "enchantmentsLabel": "Enchantments",
+    "enchantmentsSelected": "{{count}} selected",
+    "noEnchantments": "No enchantments available for this item type.",
+    "maxLevel": "max {{level}}",
+    "commandLabel": "Command",
+    "copyCommand": "Copy Command",
+    "commandCopied": "Command copied",
+    "loadingVersions": "Loading versions...",
+    "errorVersions": "Failed to load versions."
+  },
+  "sidebar": {
+    "favorites": "Favorites",
+    "searchPlaceholder": "Search tools...",
+    "noToolsFound": "No tools found.",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
+    "apiStatus": "API",
+    "apiOnline": "Online",
+    "apiOffline": "Offline"
+  },
+  "sponsors": {
+    "badge": "Sponsors",
+    "title": "Support Spoak",
+    "description": "Spoak is free and open source. If you find it useful, consider sponsoring to help keep it running and growing.",
+    "whyTitle": "Why sponsor?",
+    "whyDesc": "Your support helps cover server costs and development time, and keeps Spoak ad-free for everyone.",
+    "perks": [
+      "Keep Spoak free and ad-free",
+      "Support ongoing development",
+      "Get your name listed as a sponsor",
+      "Help us add more tools"
+    ],
+    "cta": "Sponsor on GitHub",
+    "cryptoTitle": "Crypto donations",
+    "cryptoDesc": "You can also support via cryptocurrency. Click the button to copy the address.",
+    "cryptoCopied": "Address copied!",
+    "donateBtn": "Donate with Crypto",
+    "donateTitle": "Crypto Donation",
+    "network": "Network",
+    "address": "Address",
+    "openWallet": "Open Wallet",
+    "qrHint": "Scan QR with your mobile wallet or click Open Wallet on desktop",
+    "connectWallet": "Connect Wallet",
+    "connectToSend": "Connect your wallet to send ETH directly",
+    "balance": "Balance",
+    "send": "Send",
+    "sending": "Sending...",
+    "txSuccess": "Transaction sent!",
+    "txError": "Transaction failed",
+    "thanks": "Thank you to everyone who supports this project ♥"
+  },
+  "seedmap": {
+    "badge": "Seed Map",
+    "title": "Seed Map Viewer",
+    "description": "Visualize biome distribution for any Minecraft seed. Enter a seed and generate the map.",
+    "seedLabel": "Seed",
+    "seedPlaceholder": "e.g. -4804349823814383506",
+    "versionLabel": "MC Version",
+    "generateBtn": "Generate",
+    "placeholder": "Enter a seed and click Generate",
+    "orbitHint": "Drag to pan · Scroll to zoom",
+    "structures": "Structures",
+    "error": "Failed to generate map. Make sure the backend is running."
+  },
+  "marketplace": {
+    "badge": "Marketplace",
+    "title": "Plugin Marketplace",
+    "description": "Browse Minecraft plugins from Modrinth. Click any plugin to view it on Modrinth.",
+    "searchPlaceholder": "Search plugins...",
+    "searchBtn": "Search",
+    "showing": "Showing {{from}}–{{to}} of {{total}} plugins",
+    "downloads": "Downloads",
+    "follows": "Follows",
+    "sort": {
+      "relevance": "Relevance",
+      "downloads": "Most Downloaded",
+      "follows": "Most Followed",
+      "newest": "Newest",
+      "updated": "Recently Updated"
+    },
+    "downloadTitle": "Download",
+    "gameVersion": "Game Version",
+    "selectGameVersion": "Select version",
+    "software": "Software (Loader)",
+    "selectSoftware": "Select loader",
+    "downloadBtn": "Download",
+    "noVersionFound": "No matching version found",
+    "download": "Download"
+  },
+  "status": {
+    "badge": "System Status",
+    "title": "API Status",
+    "description": "Live status of all Spoak backend services.",
+    "allOperational": "All systems operational",
+    "degraded": "Some services are unavailable",
+    "checking": "Checking services...",
+    "lastChecked": "Last checked at",
+    "refresh": "Refresh",
+    "autoRefresh": "Auto-refreshes every 5 minutes",
+    "services": {
+      "health":   { "label": "Backend Health",   "description": "Core API server" },
+      "versions": { "label": "Mojang Versions",  "description": "Minecraft version list from Mojang" },
+      "paper":    { "label": "PaperMC API",       "description": "Paper server builds" },
+      "leaf":     { "label": "Leaf API",          "description": "Leaf server builds" },
+      "mcping":   { "label": "MC Ping",           "description": "Minecraft server ping endpoint" },
+      "seedmap":  { "label": "Seed Map",          "description": "Biome tile generation (cubiomes)" }
+    }
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundDesc": "The page you're looking for doesn't exist or has been moved.",
+    "serverError": "Something went wrong",
+    "serverErrorDesc": "An unexpected error occurred. You can try again or go back to the home page.",
+    "criticalError": "A critical error occurred",
+    "criticalErrorDesc": "The application encountered an unexpected error.",
+    "retry": "Try again",
+    "goHome": "Go to home page",
+    "errorCode": "Error code"
+  },
+  "docs": {
+    "badge": "API Reference",
+    "title": "Backend API Docs",
+    "description": "Complete reference for the Spoak backend REST API. Base URL: http://localhost:4000/api",
+    "baseUrl": "Base URL",
+    "method": "Method",
+    "endpoint": "Endpoint",
+    "description_col": "Description",
+    "response": "Response",
+    "params": "Parameters",
+    "example": "Example",
+    "techStack": "Tech Stack",
+    "techDesc": "The backend is built with Rust using Axum, Tokio and Reqwest. It proxies requests to Mojang, PaperMC and Leaf APIs.",
+    "sections": {
+      "serverjars": "Server Jars",
+      "mcping": "Server Ping",
+      "player": "Player Profile",
+      "seedmap": "Seed Map"
+    },
+    "endpoints": {
+      "versions": {
+        "summary": "Get all Minecraft release versions",
+        "detail": "Returns a list of stable Minecraft Java Edition release versions sourced from the Mojang version manifest. Sorted newest first."
+      },
+      "paperBuilds": {
+        "summary": "Get Paper builds for a version",
+        "detail": "Returns all available Paper server builds for the given Minecraft version. Sorted newest first."
+      },
+      "paperLatest": {
+        "summary": "Get latest stable Paper build",
+        "detail": "Returns the latest stable Paper build for the given version."
+      },
+      "leafBuilds": {
+        "summary": "Get Leaf builds for a version",
+        "detail": "Returns all available Leaf server builds for the given Minecraft version, sourced from the Leaf API."
+      },
+      "mcping": {
+        "summary": "Ping a Minecraft server",
+        "detail": "Pings a Java Edition server using the Server List Ping protocol. Works without query protocol enabled. Returns version, player count, MOTD, favicon and latency."
+      },
+      "player": {
+        "summary": "Look up a player profile",
+        "detail": "Fetches a player's UUID, username, skin URL, cape URL and skin model from the Mojang API."
+      },
+      "seedmapVersions": {
+        "summary": "Get supported seed map versions",
+        "detail": "Returns the list of Minecraft versions supported by the biome generator."
+      },
+      "seedmapTile": {
+        "summary": "Generate a biome tile",
+        "detail": "Returns raw biome data as a binary octet-stream. Each biome ID is encoded as a signed 16-bit little-endian integer. Tile is size×size biome IDs sampled at scale 4 (1 sample per 4 blocks)."
+      },
+      "seedmapStructures": {
+        "summary": "Find structures near a position",
+        "detail": "Returns a list of structure markers (village, monument, mansion, etc.) within the given radius around the specified coordinates."
+      }
+    },
+    "paramHost": "Server hostname or IP",
+    "paramPort": "Server port (default: 25565)",
+    "paramVersion": "Minecraft version (e.g. 1.21.4)",
+    "paramUsername": "Minecraft username",
+    "paramSeed": "Numeric seed or string (auto-hashed)",
+    "paramX": "Center X coordinate (block)",
+    "paramZ": "Center Z coordinate (block)",
+    "paramSize": "Tile size in biome samples (32–256, default: 128)",
+    "paramRadius": "Search radius in blocks (256–4096, default: 1024)",
+    "envTitle": "Environment Variables",
+    "envPort": "Port the server listens on",
+    "envDefault": "Default"
+  }
+}
