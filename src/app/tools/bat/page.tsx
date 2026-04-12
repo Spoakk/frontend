@@ -117,7 +117,7 @@ export default function BatPage() {
         </SectionCard>
 
         <Button
-          variant="primary"
+          variant="primaryNormal"
           onClick={() => downloadBat(batContent)}
           className="mt-4 w-full"
         >

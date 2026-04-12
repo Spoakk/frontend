@@ -52,7 +52,7 @@ export default function SmallTextPage() {
               <span className="text-xs text-zinc-500">{t("smalltext.outputLabel")}</span>
               <CopyButton textToCopy={output} disabled={!output}
                 className="text-xs text-zinc-500 hover:text-white transition-colors disabled:opacity-30"
-                successMessage={t("smalltext.copiedMsg")}
+                successMessage={t("common.copied")}
               >
                 {t("common.copy")}
               </CopyButton>

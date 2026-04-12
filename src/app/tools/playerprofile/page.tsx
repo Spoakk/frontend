@@ -126,7 +126,7 @@ export default function PlayerProfilePage() {
             className="flex-1 rounded-lg border border-white/8 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500/50 focus:outline-none transition-colors"
           />
           <Button
-            variant="primary"
+            variant="primaryNormal"
             type="submit"
             disabled={loading || !input.trim()}
             className="flex-shrink-0 !py-2.5 !px-5"

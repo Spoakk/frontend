@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "primaryNormal" | "secondary" | "violet";
   href?: string;
   className?: string;
   children: React.ReactNode;
@@ -19,14 +19,16 @@ export function Button({ variant = "primary", href, className, children, ...prop
   
   const variants = {
     primary: "group overflow-hidden rounded-xl border border-dashed border-emerald-600/50 bg-white/[0.01] px-6 py-2.5 text-emerald-400 hover:border-emerald-500/60 hover:text-white",
-    secondary: "rounded-xl border border-white/10 bg-white/5 px-6 py-2.5 text-zinc-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
+    primaryNormal: "rounded-xl border border-dashed border-emerald-600/50 bg-white/[0.01] px-6 py-2.5 text-emerald-400 hover:border-emerald-500/60 hover:text-white",
+    secondary: "rounded-xl border border-white/10 bg-white/5 px-6 py-2.5 text-zinc-300 hover:border-white/20 hover:bg-white/10 hover:text-white",
+    violet: "group overflow-hidden rounded-xl border border-dashed border-violet-600/50 bg-white/[0.01] px-6 py-2.5 text-violet-400 hover:border-violet-500/60 hover:text-white",
   };
 
-  const primaryFill = variant === "primary" && (
-    <div className="absolute left-1/2 top-[100%] w-[250%] aspect-square -translate-x-1/2 translate-y-[60%] -z-10 transition-transform duration-1000 ease-out group-hover:-translate-y-[40%]">
-      <div className="absolute inset-0 rounded-[40%] bg-emerald-600/80 animate-[spin_10s_linear_infinite]" />
-      <div className="absolute inset-[-2%] rounded-[45%] bg-emerald-500/40 animate-[spin_13s_linear_infinite]" />
-      <div className="absolute inset-[-4%] rounded-[42%] bg-emerald-500/20 animate-[spin_16s_linear_infinite]" />
+  const primaryFill = (variant === "primary" || variant === "violet") && (
+    <div className="absolute left-1/2 top-[100%] w-[250%] aspect-square -translate-x-1/2 translate-y-[60%] z-0 transition-transform duration-1000 ease-out group-hover:-translate-y-[40%]">
+      <div className={`absolute inset-0 rounded-[40%] animate-[spin_10s_linear_infinite] ${variant === "violet" ? "bg-violet-600/80" : "bg-emerald-600/80"}`} />
+      <div className={`absolute inset-[-2%] rounded-[45%] animate-[spin_13s_linear_infinite] ${variant === "violet" ? "bg-violet-500/40" : "bg-emerald-500/40"}`} />
+      <div className={`absolute inset-[-4%] rounded-[42%] animate-[spin_16s_linear_infinite] ${variant === "violet" ? "bg-violet-500/20" : "bg-emerald-500/20"}`} />
     </div>
   );
 
@@ -36,7 +38,7 @@ export function Button({ variant = "primary", href, className, children, ...prop
     return (
       <Link href={href} className={mergedClasses}>
         {primaryFill}
-        <span className="relative z-10 flex items-center gap-2">{children}</span>
+        <span className="relative z-20 flex items-center gap-2">{children}</span>
       </Link>
     );
   }
@@ -44,7 +46,7 @@ export function Button({ variant = "primary", href, className, children, ...prop
   return (
     <button className={mergedClasses} {...props}>
       {primaryFill}
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
+      <span className="relative z-20 flex items-center gap-2">{children}</span>
     </button>
   );
 }

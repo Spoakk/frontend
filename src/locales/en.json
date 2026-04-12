@@ -21,6 +21,7 @@
   },
   "hero": {
     "badge": "Minecraft Utility Suite",
+    "cliBadge": "Spoak CLI is now live",
     "title": "Tools for every",
     "titleHighlight": "Minecraft admin",
     "description": "Server jars, start scripts, server status, text formatting — everything in one place. Free, no login required.",
@@ -104,7 +105,8 @@
     "download": "Download",
     "close": "Close",
     "loading": "Loading...",
-    "error": "An error occurred."
+    "error": "An error occurred.",
+    "help": "Help"
   },
   "bat": {
     "badge": "BAT Generator",
@@ -170,8 +172,7 @@
     "spansPlural": "spans",
     "plainText": "Plain text",
     "tagRef": "Tag Reference",
-    "selectFirst": "Select some text first to apply formatting",
-    "copiedMsg": "Copied to clipboard"
+    "selectFirst": "Select some text first to apply formatting"
   },
   "smalltext": {
     "badge": "Small Text",
@@ -182,8 +183,7 @@
     "inputLabel": "Input",
     "outputLabel": "Output",
     "outputPlaceholder": "Output will appear here...",
-    "charMap": "Character Map",
-    "copiedMsg": "Copied to clipboard"
+    "charMap": "Character Map"
   },
   "about": {
     "badge": "About Spoak",
@@ -213,8 +213,6 @@
     "netherZ": "Nether Z",
     "overworldX": "Overworld X",
     "overworldZ": "Overworld Z",
-    "copy": "Copy",
-    "copied": "Copied",
     "howItWorks": "How it works",
     "howDesc": "The Nether is 8× smaller — 1 block in the Nether equals 8 blocks in the Overworld.",
     "formulaOwToN": "OW → Nether: X ÷ 8, Z ÷ 8",
@@ -239,8 +237,7 @@
     "capeYes": "Yes",
     "capeNone": "None",
     "downloadSkin": "Download Skin",
-    "downloadCape": "Download Cape",
-    "copied": "copied"
+    "downloadCape": "Download Cape"
   },
   "servericon": {
     "badge": "Server Icon",
@@ -360,8 +357,29 @@
     "software": "Software (Loader)",
     "selectSoftware": "Select loader",
     "downloadBtn": "Download",
-    "noVersionFound": "No matching version found",
-    "download": "Download"
+    "noVersionFound": "No matching version found"
+  },
+  "cli": {
+    "badge": "New · v0.1.0",
+    "title": "Spoak",
+    "titleHighlight": "CLI",
+    "description": "All Spoak tools in your terminal. Single binary, no runtime required. Auto-downloads and updates the backend on first run.",
+    "viewDetails": "View Details",
+    "statsDescription": "Use Spoak tools in your terminal",
+    "installLabel": "Install",
+    "installCmd": "iwr -useb https://raw.githubusercontent.com/Spoakk/cli/main/install.ps1 | iex",
+    "orDownload": "Or download the binary from",
+    "githubReleases": "GitHub Releases",
+    "downloadBinary": "Download Binary",
+    "viewGithub": "View on GitHub",
+    "features": {
+      "runtime": { "title": "Zero runtime", "desc": "Single binary — no Node, no Python, no dependencies." },
+      "updates": { "title": "Auto-updates", "desc": "Checks GitHub Releases on every run and updates silently." }
+    },
+    "pingDesc": "Ping any Java server — version, MOTD with full color support, player count and latency.",
+    "playerDesc": "UUID, skin model, skin & cape URLs.",
+    "jarsDesc": "All Minecraft versions, color-coded by major release.",
+    "helpDesc": "Type {cmd} in interactive mode to see all commands."
   },
   "status": {
     "badge": "System Status",

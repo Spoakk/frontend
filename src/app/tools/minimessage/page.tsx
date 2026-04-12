@@ -200,7 +200,7 @@ export default function MiniMessagePage() {
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
             <label className="text-xs font-medium text-zinc-400">{t("minimessage.inputLabel")}</label>
-            <CopyButton textToCopy={input} successMessage={t("minimessage.copiedMsg")} className="text-xs text-zinc-500 hover:text-white transition-colors">
+            <CopyButton textToCopy={input} successMessage={t("common.copied")} className="text-xs text-zinc-500 hover:text-white transition-colors">
               {t("common.copy")}
             </CopyButton>
           </div>

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { cn } from "@/components/ui/Button";
+import { cn, Button } from "@/components/ui/Button";
 
 const PRESET_COLORS = [
   "#ff6b6b", "#ff9f43", "#ffd93d", "#6bcb77", "#4d96ff",
@@ -264,12 +264,13 @@ export function GradientPicker({ colors, onChange, onApply, applyLabel }: Gradie
 
         <div className="flex-1" />
 
-        <button
+        <Button
           onClick={onApply}
-          className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium text-emerald-400 hover:bg-emerald-500/20 transition-colors whitespace-nowrap"
+          variant="primaryNormal"
+          className="text-xs px-3 py-1.5 whitespace-nowrap"
         >
           {applyLabel}
-        </button>
+        </Button>
       </div>
     </div>
   );

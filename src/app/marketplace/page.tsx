@@ -303,7 +303,7 @@ export default function MarketplacePage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {plugins.map((p, i) => <PluginCard key={p.project_id} plugin={p} index={i} onDownload={openDownloadModal} tDownload={t("marketplace.download", "Download")} />)}
+            {plugins.map((p, i) => <PluginCard key={p.project_id} plugin={p} index={i} onDownload={openDownloadModal} tDownload={t("common.download")} />)}
           </div>
         )}
 

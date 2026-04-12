@@ -21,6 +21,7 @@
   },
   "hero": {
     "badge": "Minecraft Araç Paketi",
+    "cliBadge": "Spoak CLI yayında",
     "title": "Her Minecraft",
     "titleHighlight": "yöneticisi için",
     "description": "Sunucu jar'ları, başlatma scriptleri, sunucu durumu, metin biçimlendirme — hepsi tek yerde. Ücretsiz, kayıt gerektirmez.",
@@ -104,7 +105,8 @@
     "download": "İndir",
     "close": "Kapat",
     "loading": "Yükleniyor...",
-    "error": "Bir hata oluştu."
+    "error": "Bir hata oluştu.",
+    "help": "Yardım"
   },
   "bat": {
     "badge": "BAT Oluşturucu",
@@ -170,8 +172,7 @@
     "spansPlural": "parça",
     "plainText": "Düz metin",
     "tagRef": "Etiket Referansı",
-    "selectFirst": "Biçimlendirme uygulamak için önce metin seç",
-    "copiedMsg": "Panoya kopyalandı"
+    "selectFirst": "Biçimlendirme uygulamak için önce metin seç"
   },
   "smalltext": {
     "badge": "Küçük Yazı",
@@ -182,8 +183,7 @@
     "inputLabel": "Giriş",
     "outputLabel": "Çıkış",
     "outputPlaceholder": "Çıkış burada görünecek...",
-    "charMap": "Karakter Haritası",
-    "copiedMsg": "Panoya kopyalandı"
+    "charMap": "Karakter Haritası"
   },
   "about": {
     "badge": "Spoak Hakkında",
@@ -213,8 +213,6 @@
     "netherZ": "Nether Z",
     "overworldX": "Overworld X",
     "overworldZ": "Overworld Z",
-    "copy": "Kopyala",
-    "copied": "Kopyalandı",
     "howItWorks": "Nasıl çalışır",
     "howDesc": "Nether 8× daha küçüktür — Nether'daki 1 blok, Overworld'da 8 bloğa eşittir.",
     "formulaOwToN": "OW → Nether: X ÷ 8, Z ÷ 8",
@@ -239,8 +237,7 @@
     "capeYes": "Var",
     "capeNone": "Yok",
     "downloadSkin": "Skin İndir",
-    "downloadCape": "Pelerin İndir",
-    "copied": "kopyalandı"
+    "downloadCape": "Pelerin İndir"
   },
   "servericon": {
     "badge": "Sunucu İkonu",
@@ -360,8 +357,29 @@
     "software": "Yazılım (Loader)",
     "selectSoftware": "Yazılım seçin",
     "downloadBtn": "İndir",
-    "noVersionFound": "Bu kombinasyon için sürüm bulunamadı",
-    "download": "İndir"
+    "noVersionFound": "Bu kombinasyon için sürüm bulunamadı"
+  },
+  "cli": {
+    "badge": "Yeni · v0.1.0",
+    "title": "Spoak",
+    "titleHighlight": "CLI",
+    "description": "Tüm Spoak araçları terminalinde. Tek binary, runtime gerekmez. İlk çalıştırmada backend'i otomatik indirir ve günceller.",
+    "viewDetails": "Detayları Gör",
+    "statsDescription": "Spoak araçlarını terminalinde kullan",
+    "installLabel": "Kurulum",
+    "installCmd": "iwr -useb https://raw.githubusercontent.com/Spoakk/cli/main/install.ps1 | iex",
+    "orDownload": "Ya da binary'yi şuradan indir:",
+    "githubReleases": "GitHub Releases",
+    "downloadBinary": "Binary İndir",
+    "viewGithub": "GitHub'da Görüntüle",
+    "features": {
+      "runtime": { "title": "Runtime yok", "desc": "Tek binary — Node, Python ya da bağımlılık gerekmez." },
+      "updates": { "title": "Otomatik güncelleme", "desc": "Her çalıştırmada GitHub Releases'i kontrol eder, sessizce günceller." }
+    },
+    "pingDesc": "Herhangi bir Java sunucusunu pingla — sürüm, tam renk destekli MOTD, oyuncu sayısı ve gecikme.",
+    "playerDesc": "UUID, skin modeli, skin ve pelerin URL'leri.",
+    "jarsDesc": "Tüm Minecraft sürümleri, major release'e göre renk kodlu.",
+    "helpDesc": "Tüm komutları görmek için interaktif modda {cmd} yaz."
   },
   "status": {
     "badge": "Sistem Durumu",

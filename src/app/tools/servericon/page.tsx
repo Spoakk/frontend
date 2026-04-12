@@ -138,7 +138,7 @@ export default function ServerIconPage() {
                   <p className="text-xs text-zinc-500 font-mono">{t("servericon.resultMeta")}</p>
                 </Card>
               </div>
-              <Button variant="primary" onClick={handleDownload} className="w-full">
+              <Button variant="primaryNormal" onClick={handleDownload} className="w-full">
                 <IconDownload className="h-4 w-4" />
                 {t("servericon.downloadBtn")}
               </Button>

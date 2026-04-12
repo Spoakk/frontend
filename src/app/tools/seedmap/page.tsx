@@ -370,7 +370,7 @@ export default function SeedMapPage() {
           </div>
 
           <Button
-            variant="primary"
+            variant="primaryNormal"
             onClick={generate}
             disabled={!seed.trim() || loading || !version}
           >

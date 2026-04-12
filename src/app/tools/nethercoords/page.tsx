@@ -100,7 +100,7 @@ export default function NetherCoordsPage() {
               labelX={t("nethercoords.netherX")} labelZ={t("nethercoords.netherZ")}
               x={owToN.x} z={owToN.z}
               copyText={`X: ${owToN.x ?? "?"} Z: ${owToN.z ?? "?"}`}
-              copyLabel={t("nethercoords.copy")}
+              copyLabel={t("common.copy")}
             />
           </SectionCard>
         </div>
@@ -130,7 +130,7 @@ export default function NetherCoordsPage() {
               labelX={t("nethercoords.overworldX")} labelZ={t("nethercoords.overworldZ")}
               x={nToOw.x} z={nToOw.z}
               copyText={`X: ${nToOw.x ?? "?"} Z: ${nToOw.z ?? "?"}`}
-              copyLabel={t("nethercoords.copy")}
+              copyLabel={t("common.copy")}
             />
           </SectionCard>
         </div>
@@ -154,3 +154,4 @@ export default function NetherCoordsPage() {
     </div>
   );
 }
+

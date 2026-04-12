@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
+import NewsSection from "@/components/home/NewsSection";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import Footer from "@/components/layout/Footer";
 
@@ -8,6 +9,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#0c0c0f]">
       <HeroSection />
       <StatsSection />
+      <NewsSection />
       <FeaturesSection />
       <Footer />
     </main>

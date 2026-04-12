@@ -228,7 +228,7 @@ export default function GiveCmdPage() {
             </pre>
           </SectionCard>
 
-          <Button variant="primary" onClick={copyManual} className="w-full mt-2">
+          <Button variant="primaryNormal" onClick={copyManual} className="w-full mt-2">
             {t("givecmd.copyCommand")}
           </Button>
 

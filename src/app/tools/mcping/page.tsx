@@ -66,7 +66,7 @@ export default function McPingPage() {
             placeholder={t("mcping.placeholder")}
             className="flex-1 rounded-lg border border-white/8 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-emerald-500/50 focus:outline-none transition-colors"
           />
-          <Button variant="primary" type="submit" disabled={loading || !input.trim()}>
+          <Button variant="primaryNormal" type="submit" disabled={loading || !input.trim()}>
             {loading ? <><IconSpinner />{t("mcping.pinging")}</> : t("mcping.pingBtn")}
           </Button>
         </form>

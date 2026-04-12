@@ -1,6 +1,6 @@
 ![Spoak Banner](readmd/spoakbanner.png)
 
-# Spoak Frontend v0.1
+# Spoak Frontend v0.1.1
 
 Minecraft sunucu yöneticileri ve oyuncuları için araç koleksiyonu. Next.js 16 ile geliştirilmiş, Rust tabanlı [spoak-backend](https://github.com/spoakk/backend) ile çalışır.
 
