@@ -27,7 +27,7 @@ export default function SettingsModal({ open, onClose }: SettingsModalProps) {
             <p className="text-sm text-white">{t("settings.version")}</p>
             <p className="text-xs text-zinc-500 mt-0.5">{t("settings.versionDesc")}</p>
           </div>
-          <span className="text-xs text-zinc-600 font-mono">0.1.0</span>
+          <span className="text-xs text-zinc-600 font-mono">0.1.1</span>
         </div>
       </div>
     </Modal>
