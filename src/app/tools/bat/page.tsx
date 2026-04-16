@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { Button } from "@/components/ui/Button";
 import { SectionCard } from "@/components/ui/Card";
+import { RamSlider } from "@/components/ui/RamSlider";
 const SERVER_TYPES = ["Paper", "Leaf"] as const;
 type ServerType = (typeof SERVER_TYPES)[number];
 
@@ -83,20 +84,14 @@ export default function BatPage() {
             </div>
           </div>
 
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <label className="text-xs font-medium text-zinc-400">{t("bat.ram")}</label>
-              <span className="text-xs font-mono text-emerald-400">{ram >= 1024 ? `${ram / 1024}GB` : `${ram}MB`}</span>
-            </div>
-            <input
-              type="range" min={512} max={16384} step={512} value={ram}
-              onChange={(e) => setRam(Number(e.target.value))}
-              className="w-full accent-emerald-500"
-            />
-            <div className="flex justify-between text-xs text-zinc-600 mt-1">
-              <span>512MB</span><span>16GB</span>
-            </div>
-          </div>
+          <RamSlider
+            value={ram}
+            onChange={setRam}
+            min={512}
+            max={65536}
+            step={512}
+            label={t("bat.ram")}
+          />
         </SectionCard>
 
         <SectionCard

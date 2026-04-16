@@ -326,6 +326,7 @@
     "badge": "Seed Map",
     "title": "Seed Map Viewer",
     "description": "Visualize biome distribution for any Minecraft seed. Enter a seed and generate the map.",
+    "betaWarning": "This tool is currently in beta and may experience performance issues. We're actively working on optimizations to improve speed and stability.",
     "seedLabel": "Seed",
     "seedPlaceholder": "e.g. -4804349823814383506",
     "versionLabel": "MC Version",

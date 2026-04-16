@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { TOOLS, QUICK_LINK_KEYS } from "@/lib/tools";
+import { IconStarFilled } from "@/components/ui/Icons";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,6 +15,40 @@ const fadeUp = (delay = 0) => ({
 });
 
 const quickLinks = TOOLS.filter(t => (QUICK_LINK_KEYS as readonly string[]).includes(t.key));
+
+function GitHubStars() {
+  const [stars, setStars] = React.useState<number | null>(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch("https://api.github.com/repos/Spoakk/frontend")
+      .then(res => res.json())
+      .then(data => {
+        if (data.stargazers_count !== undefined) {
+          setStars(data.stargazers_count);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading || stars === null) return null;
+
+  return (
+    <motion.a
+      href="https://github.com/Spoakk/frontend"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.35, duration: 0.5 }}
+      className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-4 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-sm hover:border-emerald-500/30 hover:bg-emerald-500/10 transition-all duration-300 group"
+    >
+      <IconStarFilled className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" />
+      <span>{stars.toLocaleString()}</span>
+    </motion.a>
+  );
+}
 
 export default function HeroSection() {
   const { t: rawT } = useTranslation();
@@ -33,11 +68,12 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
 
-        <motion.div {...fadeUp(0)} className="mb-8 flex justify-center">
+        <motion.div {...fadeUp(0)} className="mb-8 flex justify-center gap-3 flex-wrap">
           <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-4 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
             {t("hero.badge")}
           </span>
+          <GitHubStars />
         </motion.div>
 
         <motion.h1

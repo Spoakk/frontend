@@ -345,6 +345,15 @@ export default function SeedMapPage() {
           </span>
           <h1 className="text-2xl font-bold text-white">{t("seedmap.title")}</h1>
           <p className="mt-1 text-sm text-zinc-500">{t("seedmap.description")}</p>
+          
+          <div className="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-sm px-4 py-3">
+            <div className="flex items-start gap-3">
+              <span className="text-amber-400 text-lg shrink-0">⚠️</span>
+              <p className="text-sm text-amber-200/90 leading-relaxed">
+                {t("seedmap.betaWarning")}
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-end gap-3 mb-4">
@@ -428,13 +437,13 @@ export default function SeedMapPage() {
           )}
 
           {hoverCoord && (
-            <div className="absolute bottom-3 left-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300 font-mono pointer-events-none select-none">
-              X {hoverCoord.x} &nbsp; Z {hoverCoord.z}
+            <div className="absolute bottom-3 left-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-3 py-2 text-xs text-white font-mono pointer-events-none select-none shadow-lg">
+              <span className="text-zinc-400">X</span> {hoverCoord.x} <span className="text-zinc-600 mx-1">|</span> <span className="text-zinc-400">Z</span> {hoverCoord.z}
             </div>
           )}
 
           {isActive && (
-            <div className="absolute top-3 right-3 rounded-md bg-black/50 px-2 py-1 text-[10px] text-zinc-500 pointer-events-none select-none">
+            <div className="absolute top-3 right-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-3 py-1.5 text-[11px] text-zinc-300 pointer-events-none select-none shadow-lg">
               {t("seedmap.orbitHint")}
             </div>
           )}

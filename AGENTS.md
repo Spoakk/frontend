@@ -10,6 +10,22 @@
 - The CSP in `next.config.ts` is strict. External image sources are limited to `crafatar.com` and `mc-heads.net`. External API connections are limited to `sentry.io`, `api.modrinth.com`, and `relay.walletconnect.com`. Adding new external resources requires updating the CSP header in `next.config.ts`.
 - `console.log` is stripped in production builds (only `error` and `warn` survive). Do not rely on `console.log` for production debugging.
 
+## Before writing any new code
+
+Before writing a single line of new code, you must:
+
+1. **Read the existing codebase first.** Explore the relevant files and directories to understand what is already there.
+2. **Audit existing components.** Look at the components used in nearby pages and features — understand their props, patterns, and naming conventions.
+3. **Learn the design language.** Study how existing pages are structured, what CSS classes or styling patterns are used, and how layout is composed. Match the visual style and code style of what already exists.
+4. **Check the locale files.** Open `src/locales/en.json` and `src/locales/tr.json` before touching any UI string. Understand the existing key hierarchy so your new keys fit naturally into it.
+5. **Only then write code** — and make it consistent with everything you just read.
+
+> Never introduce a new pattern, component, or style if an equivalent already exists in the codebase.
+
+## Always update both locale files
+
+Every change that touches any user-facing string — no matter how small — must update **both** `src/locales/en.json` **and** `src/locales/tr.json` at the same time, in the same commit. A Turkish key that is missing or left as a placeholder is a broken Turkish UI. This is not optional.
+
 ## Validation before finishing
 
 ```bash

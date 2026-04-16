@@ -326,6 +326,7 @@
     "badge": "Seed Haritası",
     "title": "Seed Haritası Görüntüleyici",
     "description": "Herhangi bir Minecraft seed'i için biyom dağılımını görselleştir. Seed gir ve haritayı oluştur.",
+    "betaWarning": "Bu araç şu anda beta aşamasındadır ve performans sorunları yaşayabilir. Hız ve kararlılığı iyileştirmek için aktif olarak optimizasyon çalışmaları yapıyoruz.",
     "seedLabel": "Seed",
     "seedPlaceholder": "örn. -4804349823814383506",
     "versionLabel": "MC Sürümü",
