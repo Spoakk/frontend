@@ -26,48 +26,83 @@ function InfoRow({ label, value, onCopy, copyLabel }: { label: string; value: st
 function HeadCanvas({ skinUrl }: { skinUrl: string | null }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<import("@/lib/headRenderer").SkinHeadRenderer | null>(null);
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
     if (!containerRef.current) return;
+    let mounted = true;
     let renderer: import("@/lib/headRenderer").SkinHeadRenderer;
-    import("@/lib/headRenderer").then(({ SkinHeadRenderer }) => {
-      if (!containerRef.current) return;
-      renderer = new SkinHeadRenderer(containerRef.current);
-      rendererRef.current = renderer;
-      if (skinUrl) renderer.loadSkin(skinUrl);
-    });
-    return () => { renderer?.dispose(); rendererRef.current = null; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    import("@/lib/headRenderer")
+      .then(({ SkinHeadRenderer }) => {
+        if (!mounted || !containerRef.current) return;
+        renderer = new SkinHeadRenderer(containerRef.current);
+        rendererRef.current = renderer;
+        setIsReady(true);
+      })
+      .catch((err) => {
+        console.error("HeadCanvas load error:", err);
+      });
+
+    return () => {
+      mounted = false;
+      if (renderer) {
+        renderer.dispose();
+        rendererRef.current = null;
+      }
+    };
   }, []);
-  useEffect(() => { if (skinUrl && rendererRef.current) rendererRef.current.loadSkin(skinUrl); }, [skinUrl]);
+
+  useEffect(() => {
+    if (isReady && skinUrl && rendererRef.current) {
+      rendererRef.current.loadSkin(skinUrl);
+    }
+  }, [skinUrl, isReady]);
+
   return <div ref={containerRef} className="h-full w-full" />;
 }
 
 function BodyCanvas({ skinUrl, capeUrl, model }: { skinUrl: string | null; capeUrl: string | null; model: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<import("@/lib/skinRenderer").SkinRenderer | null>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
+    let mounted = true;
     let renderer: import("@/lib/skinRenderer").SkinRenderer;
-    import("@/lib/skinRenderer").then(({ SkinRenderer }) => {
-      if (!containerRef.current) return;
-      renderer = new SkinRenderer(containerRef.current);
-      rendererRef.current = renderer;
-      renderer.setModelType(model === "slim" ? "alex" : "steve");
-      if (skinUrl) renderer.loadSkin(skinUrl);
-      if (capeUrl) renderer.loadCape(capeUrl);
-    });
-    return () => { renderer?.dispose(); rendererRef.current = null; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    import("@/lib/skinRenderer")
+      .then(({ SkinRenderer }) => {
+        if (!mounted || !containerRef.current) return;
+        renderer = new SkinRenderer(containerRef.current);
+        rendererRef.current = renderer;
+        setIsReady(true);
+      })
+      .catch((err) => {
+        console.error("BodyCanvas load error:", err);
+      });
+
+    return () => {
+      mounted = false;
+      if (renderer) {
+        renderer.dispose();
+        rendererRef.current = null;
+      }
+    };
   }, []);
 
-  useEffect(() => { 
-    if (!rendererRef.current) return;
+  useEffect(() => {
+    if (!isReady || !rendererRef.current || !skinUrl) return;
     const renderer = rendererRef.current;
-    if (skinUrl) renderer.loadSkin(skinUrl);
-    if (capeUrl) renderer.loadCape(capeUrl);
+    
     renderer.setModelType(model === "slim" ? "alex" : "steve");
-  }, [skinUrl, capeUrl, model]);
+    renderer.loadSkin(skinUrl);
+    
+    if (capeUrl) {
+      renderer.loadCape(capeUrl);
+    }
+  }, [skinUrl, capeUrl, model, isReady]);
 
   return <div ref={containerRef} className="h-full w-full" />;
 }
@@ -146,19 +181,19 @@ export default function PlayerProfilePage() {
         <AnimatePresence>
           {profile && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="space-y-4">
-              <Card className="flex items-stretch gap-4">
-                <div className="h-32 w-32 shrink-0 bg-white/[0.02]"><HeadCanvas skinUrl={profile.skin_url} /></div>
-                <div className="flex-1 py-4 pr-4 flex flex-col justify-center min-w-0">
+              <Card className="flex items-stretch gap-4 p-4">
+                <div className="h-32 w-32 shrink-0 bg-zinc-900 rounded-lg overflow-hidden border border-white/5"><HeadCanvas skinUrl={profile.skin_url} /></div>
+                <div className="flex-1 flex flex-col justify-center min-w-0">
                   <p className="text-xl font-bold text-white">{profile.username}</p>
                   <p className="text-xs text-zinc-500 font-mono mt-0.5 truncate">{profile.uuid_formatted}</p>
                   <div className="flex gap-2 mt-2 flex-wrap">
-                    <span className="rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-0.5 text-xs text-zinc-400 capitalize">{profile.skin_model}</span>
+                    <span className="rounded-full border border-white/8 bg-white/3 px-2.5 py-0.5 text-xs text-zinc-400 capitalize">{profile.skin_model}</span>
                     {profile.cape_url && (
                       <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs text-emerald-400">{t("playerprofile.hasCape")}</span>
                     )}
                   </div>
                 </div>
-                <div className="h-32 w-24 shrink-0 bg-white/[0.02]">
+                <div className="h-32 w-24 shrink-0 bg-zinc-900 rounded-lg overflow-hidden border border-white/5">
                   <BodyCanvas skinUrl={profile.skin_url} capeUrl={profile.cape_url} model={profile.skin_model} />
                 </div>
               </Card>

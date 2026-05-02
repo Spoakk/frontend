@@ -4,8 +4,8 @@ export class SkinHeadRenderer {
   private viewer: SkinViewer;
 
   constructor(container: HTMLElement) {
-    const w = container.clientWidth || 128;
-    const h = container.clientHeight || 128;
+    const w = Math.max(container.clientWidth || 128, 128);
+    const h = Math.max(container.clientHeight || 128, 128);
 
     this.viewer = new SkinViewer({
       width: w,
@@ -16,36 +16,39 @@ export class SkinHeadRenderer {
 
     container.appendChild(this.viewer.canvas);
 
+    this.viewer.camera.position.set(2, 0, 4);
     this.viewer.controls.target.set(0, 12, 0);
-    this.viewer.controls.minDistance = 10;
-    this.viewer.controls.maxDistance = 30;
+    this.viewer.controls.enableZoom = true;
+    this.viewer.controls.enablePan = false;
+    this.viewer.controls.minDistance = 8;
+    this.viewer.controls.maxDistance = 20;
     this.viewer.controls.update();
 
-    this.viewer.zoom = 1.5;
-    this.viewer.fov = 45;
+    this.viewer.zoom = 0.5;
+    this.viewer.fov = 35;
 
     this.viewer.playerObject.skin.body.visible = false;
     this.viewer.playerObject.skin.rightArm.visible = false;
     this.viewer.playerObject.skin.leftArm.visible = false;
     this.viewer.playerObject.skin.rightLeg.visible = false;
     this.viewer.playerObject.skin.leftLeg.visible = false;
-
-    this.viewer.playerObject.skin.head.rotation.y = Math.PI * 0.2;
   }
 
   loadSkin(dataUrl: string): void {
     this.viewer.loadSkin(dataUrl, {
       model: 'auto-detect',
-      makeVisible: false,
-    });
-
-    requestAnimationFrame(() => {
-      this.viewer.playerObject.skin.head.visible = true;
-      this.viewer.playerObject.skin.body.visible = false;
-      this.viewer.playerObject.skin.rightArm.visible = false;
-      this.viewer.playerObject.skin.leftArm.visible = false;
-      this.viewer.playerObject.skin.rightLeg.visible = false;
-      this.viewer.playerObject.skin.leftLeg.visible = false;
+      makeVisible: true,
+    }).then(() => {
+      setTimeout(() => {
+        this.viewer.playerObject.skin.head.visible = true;
+        this.viewer.playerObject.skin.body.visible = false;
+        this.viewer.playerObject.skin.rightArm.visible = false;
+        this.viewer.playerObject.skin.leftArm.visible = false;
+        this.viewer.playerObject.skin.rightLeg.visible = false;
+        this.viewer.playerObject.skin.leftLeg.visible = false;
+        
+        this.viewer.playerObject.rotation.y = Math.PI * 0.15;
+      }, 100);
     });
   }
 

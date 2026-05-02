@@ -9,8 +9,8 @@ export class SkinRenderer {
   private currentModel: ModelType = 'steve';
 
   constructor(container: HTMLElement) {
-    const w = container.clientWidth || 400;
-    const h = container.clientHeight || 400;
+    const w = Math.max(container.clientWidth || 96, 96);
+    const h = Math.max(container.clientHeight || 128, 128);
 
     this.viewer = new SkinViewer({
       width: w,
@@ -62,9 +62,12 @@ export class SkinRenderer {
 
   setModelType(type: ModelType): void {
     this.currentModel = type;
+  }
+
+  updateSkin(): void {
     if (this.lastSkinUrl) {
       this.viewer.loadSkin(this.lastSkinUrl, {
-        model: type === 'alex' ? 'slim' : 'default',
+        model: this.currentModel === 'alex' ? 'slim' : 'default',
         makeVisible: true,
       });
     }

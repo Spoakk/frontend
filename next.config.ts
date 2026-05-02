@@ -18,7 +18,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://crafatar.com https://mc-heads.net https://cdn.modrinth.com",
+      "img-src 'self' data: blob: https://crafatar.com https://mc-heads.net https://cdn.modrinth.com http://textures.minecraft.net https://textures.minecraft.net https://img.buymeacoffee.com",
       `connect-src 'self' ${apiOrigin} https://*.sentry.io https://api.modrinth.com https://relay.walletconnect.com wss://relay.walletconnect.com https://api.github.com`,
       "font-src 'self' data:",
       "worker-src 'self' blob:",

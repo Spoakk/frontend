@@ -292,8 +292,11 @@ export function IconServerIcon({ className = "h-5 w-5" }: IconProps) {
 export function IconGiveCommand({ className = "h-5 w-5" }: IconProps) {
   return (
     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1012 10.125 2.625 2.625 0 0012 4.875z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 9.75h16.5M12 4.875V19.5M12 4.875c0-1.036.84-1.875 1.875-1.875S15.75 3.839 15.75 4.875M12 4.875c0-1.036-.84-1.875-1.875-1.875S8.25 3.839 8.25 4.875" />
+      <rect x="4" y="10" width="16" height="10" rx="1" strokeWidth={1.5} />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 10V9a1 1 0 011-1h14a1 1 0 011 1v1" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8V20" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c0-1.5-1-3-2.5-3S7 6.5 7 8" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c0-1.5 1-3 2.5-3S17 6.5 17 8" />
     </svg>
   );
 }
@@ -453,6 +456,26 @@ export function IconStarFilled({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg className={`shrink-0 ${className}`} fill="currentColor" viewBox="0 0 16 16">
       <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" />
+    </svg>
+  );
+}
+
+export function IconMOTD({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth={1.5} />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 9h10M7 13h6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 13h.01" />
+    </svg>
+  );
+}
+
+
+export function IconClock({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" strokeWidth={1.5} />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 7v5l3 3" />
     </svg>
   );
 }

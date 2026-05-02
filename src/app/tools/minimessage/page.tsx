@@ -221,7 +221,7 @@ export default function MiniMessagePage() {
           }
           bodyClassName="px-5 py-5 min-h-[64px] flex items-center"
         >
-          <p className="text-base leading-relaxed break-all font-mono">
+          <p className="text-base leading-relaxed break-all" style={{ fontFamily: 'MinecraftAlt, Minecraft, monospace' }}>
             {spans.length > 0
               ? spans.map((span, i) => <PreviewSpan key={i} span={span} />)
               : <span className="text-zinc-700 text-sm">Start typing...</span>

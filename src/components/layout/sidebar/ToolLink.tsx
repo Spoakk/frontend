@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { IconStar } from "@/components/ui/Icons";
+import { useQuickAccessContext } from "@/components/providers/QuickAccessProvider";
 import type { ToolItem, FavToggleFn } from "./types";
 
 interface Props {
@@ -17,15 +18,31 @@ interface Props {
 export default function ToolLink({ item, favs, onToggleFav, onClick }: Props) {
   const { t } = useTranslation();
   const pathname = usePathname();
+  const { quickAccess, multiTool, setOpenTool, addToolWindow } = useQuickAccessContext();
   const active = pathname === item.href;
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const tr = (key: string) => mounted ? t(key) : "";
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (quickAccess) {
+      e.preventDefault();
+      const toolKey = item.href.replace("/tools/", "");
+      
+      if (multiTool) {
+        addToolWindow(toolKey);
+      } else {
+        setOpenTool(toolKey);
+      }
+      
+      onClick?.();
+    }
+  };
 
   return (
     <li>
       <Link
         href={item.href}
-        onClick={onClick}
+        onClick={handleClick}
         className={`group flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors ${
           active ? "text-emerald-400" : "text-zinc-500 hover:text-zinc-200"
         }`}

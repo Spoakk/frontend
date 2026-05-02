@@ -7,9 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import {
   IconHome, IconInfo, IconSettings, IconStar,
-  IconBook, IconWrench, IconMarketplace, IconClose, IconHeart,
+  IconBook, IconWrench, IconMarketplace, IconClose, IconHeart, IconTerminal,
 } from "@/components/ui/Icons";
 import { useApiStatus } from "@/components/providers/ApiStatusProvider";
+import { useQuickAccessContext } from "@/components/providers/QuickAccessProvider";
 import type { ToolItem, FavToggleFn } from "./types";
 
 interface Props {
@@ -26,6 +27,7 @@ export default function MobileDrawer({ toolItems, favs, onToggleFav, onOpenSetti
   const { t } = useTranslation();
   const pathname = usePathname();
   const { status: apiStatus } = useApiStatus();
+  const { quickAccess, setOpenTool } = useQuickAccessContext();
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const tr = (key: string) => mounted ? t(key) : "";
 
@@ -33,8 +35,18 @@ export default function MobileDrawer({ toolItems, favs, onToggleFav, onOpenSetti
 
   const favTools = useMemo(() => toolItems.filter((item) => favs.includes(item.key)), [favs, toolItems]);
 
+  const handleToolClick = (e: React.MouseEvent, href: string) => {
+    if (quickAccess && href.startsWith("/tools/")) {
+      e.preventDefault();
+      const toolKey = href.replace("/tools/", "");
+      setOpenTool(toolKey);
+      onClose();
+    }
+  };
+
   const pillItems = [
     { href: "/",            icon: <IconHome className="h-5 w-5" />,        label: tr("nav.home"),        active: isActive("/") },
+    { href: "/cli",         icon: <IconTerminal className="h-5 w-5" />,   label: tr("nav.cli"),         active: isActive("/cli") },
     { href: "/marketplace", icon: <IconMarketplace className="h-5 w-5" />, label: tr("nav.marketplace"), active: pathname.startsWith("/marketplace") },
     { href: "/docs",        icon: <IconBook className="h-5 w-5" />,        label: tr("nav.docs"),        active: isActive("/docs") },
     { href: "/about",       icon: <IconInfo className="h-5 w-5" />,        label: tr("nav.about"),       active: isActive("/about") },
@@ -90,7 +102,7 @@ export default function MobileDrawer({ toolItems, favs, onToggleFav, onOpenSetti
                       <Link
                         key={item.key}
                         href={item.href}
-                        onClick={onClose}
+                        onClick={(e) => handleToolClick(e, item.href)}
                         className={`flex items-center gap-2.5 rounded-xl px-3 py-2.5 transition-colors ${
                           isActive(item.href)
                             ? "bg-emerald-500/15 text-emerald-400"
@@ -133,7 +145,7 @@ export default function MobileDrawer({ toolItems, favs, onToggleFav, onOpenSetti
                     <Link
                       key={item.key}
                       href={item.href}
-                      onClick={onClose}
+                      onClick={(e) => handleToolClick(e, item.href)}
                       className={`group flex items-center gap-2.5 rounded-xl px-3 py-2.5 transition-colors ${
                         isActive(item.href)
                           ? "bg-emerald-500/15 text-emerald-400"
@@ -145,7 +157,7 @@ export default function MobileDrawer({ toolItems, favs, onToggleFav, onOpenSetti
                       <button
                         type="button"
                         onClick={(e) => onToggleFav(item.key, e)}
-                        className="ml-auto shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="ml-auto shrink-0 transition-opacity"
                         aria-label={favs.includes(item.key) ? tr("sidebar.removeFavorite") : tr("sidebar.addFavorite")}
                       >
                         <IconStar filled={favs.includes(item.key)} className="h-3 w-3" />

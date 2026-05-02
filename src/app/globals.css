@@ -1,5 +1,73 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/MinecraftRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/MinecraftBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/MinecraftItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/MinecraftBoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinecraftAlt';
+  src: url('/fonts/MinecraftRegularAlt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1D00-U+1D7F, U+1D80-U+1DBF, U+2C60-U+2C7F, U+A720-U+A7FF;
+}
+
+@font-face {
+  font-family: 'MinecraftAlt';
+  src: url('/fonts/MinecraftBoldAlt.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+1D00-U+1D7F, U+1D80-U+1DBF, U+2C60-U+2C7F, U+A720-U+A7FF;
+}
+
+@font-face {
+  font-family: 'MinecraftAlt';
+  src: url('/fonts/MinecraftItalicAlt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+1D00-U+1D7F, U+1D80-U+1DBF, U+2C60-U+2C7F, U+A720-U+A7FF;
+}
+
+@font-face {
+  font-family: 'MinecraftAlt';
+  src: url('/fonts/MinecraftBoldItalicAlt.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+1D00-U+1D7F, U+1D80-U+1DBF, U+2C60-U+2C7F, U+A720-U+A7FF;
+}
+
 :root {
   --background: #0c0c0f;
   --foreground: #f4f4f5;
@@ -8,6 +76,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  --font-family-minecraft: 'Minecraft', monospace;
 }
 
 body {

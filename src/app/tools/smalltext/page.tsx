@@ -60,7 +60,7 @@ export default function SmallTextPage() {
           }
           bodyClassName="px-5 py-5 min-h-[64px]"
         >
-          <p className="text-base text-white leading-relaxed break-all select-all">
+          <p className="text-base text-white leading-relaxed break-all select-all" style={{ fontFamily: 'MinecraftAlt, Minecraft, monospace' }}>
             {output || <span className="text-zinc-600">{t("smalltext.outputPlaceholder")}</span>}
           </p>
         </SectionCard>

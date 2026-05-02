@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "cli": "CLI",
     "tools": "Tools",
     "bat": "BAT Generator",
     "serverjars": "Server Jars",
@@ -13,6 +14,7 @@
     "playerprofile": "Player Profile",
     "servericon": "Server Icon",
     "givecmd": "Give Command",
+    "motd": "MOTD Generator",
     "about": "About",
     "sponsor": "Sponsor",
     "docs": "API Docs",
@@ -32,7 +34,14 @@
     "serverjars": "Paper & Leaf builds",
     "bat": "Optimized start scripts",
     "mcping": "Java server ping tool",
-    "minimessage": "Text formatting editor"
+    "minimessage": "Text formatting editor",
+    "smalltext": "Unicode small caps converter",
+    "nethercoords": "Portal coordinate calculator",
+    "playerprofile": "Player UUID & skin lookup",
+    "servericon": "64×64 server icon generator",
+    "givecmd": "Command builder with enchantments",
+    "seedmap": "Biome visualization tool",
+    "motd": "Server MOTD creator"
   },
   "features": {
     "title": "Everything you need",
@@ -78,6 +87,10 @@
       "seedmap": {
         "title": "Seed Map",
         "description": "Visualize biome distribution for any Minecraft seed. Enter a seed and generate the map."
+      },
+      "motd": {
+        "title": "MOTD Generator",
+        "description": "Create server MOTD with colors and formatting. Live preview included."
       }
     }
   },
@@ -96,6 +109,10 @@
     "title": "Settings",
     "language": "Language",
     "languageDesc": "Interface language",
+    "quickAccess": "Quick Access Mode",
+    "quickAccessDesc": "Open tools in modal instead of navigating to page",
+    "multiTool": "Multi-Tool Mode",
+    "multiToolDesc": "Open multiple tools in separate windows (requires Quick Access)",
     "version": "Version",
     "versionDesc": "Spoak Frontend"
   },
@@ -244,6 +261,8 @@
     "title": "Server Icon Generator",
     "description": "Convert any image to a 64×64 server-icon.png ready for Minecraft.",
     "dropText": "Drop your image here or",
+    "dropHere": "Drop your image here",
+    "dropOr": "or",
     "dropBrowse": "browse",
     "dropFormats": "PNG, JPG, SVG, ICO supported",
     "processing": "Processing...",
@@ -255,7 +274,9 @@
     "footerNote": "Minecraft requires server-icon.png to be exactly 64×64 pixels in PNG format.",
     "errorType": "Unsupported file type. Use PNG, JPG, SVG or ICO.",
     "errorProcess": "Failed to process image.",
-    "downloaded": "Downloaded server-icon.png"
+    "downloaded": "Downloaded server-icon.png",
+    "feature1": "Automatic 64×64 resize",
+    "feature2": "High quality output"
   },
   "givecmd": {
     "badge": "Give Command",
@@ -283,6 +304,7 @@
   },
   "sidebar": {
     "favorites": "Favorites",
+    "search": "Search",
     "searchPlaceholder": "Search tools...",
     "noToolsFound": "No tools found.",
     "addFavorite": "Add to favorites",
@@ -290,6 +312,20 @@
     "apiStatus": "API",
     "apiOnline": "Online",
     "apiOffline": "Offline"
+  },
+  "search": {
+    "placeholder": "Search tools, pages, docs...",
+    "recent": "Recent",
+    "clear": "Clear",
+    "noResults": "No results found",
+    "navigate": "Navigate",
+    "select": "Select",
+    "close": "Close",
+    "category": {
+      "tool": "Tool",
+      "page": "Page",
+      "doc": "Doc"
+    }
   },
   "sponsors": {
     "badge": "Sponsors",
@@ -335,6 +371,26 @@
     "orbitHint": "Drag to pan · Scroll to zoom",
     "structures": "Structures",
     "error": "Failed to generate map. Make sure the backend is running."
+  },
+  "motd": {
+    "badge": "MOTD Generator",
+    "title": "Server MOTD Generator",
+    "description": "Create a custom Message of the Day for your Minecraft server with colors and formatting.",
+    "line1Label": "Line 1",
+    "line2Label": "Line 2",
+    "line1Placeholder": "Welcome to my server!",
+    "line2Placeholder": "Join us for fun!",
+    "format": "Format",
+    "colors": "Colors",
+    "gradient": "Gradient",
+    "applyGradient": "Apply",
+    "preview": "Preview",
+    "previewDesc": "How it looks in the server list",
+    "output": "Output Format",
+    "vanillaDesc": "Copy this line to your server.properties file",
+    "minimotdDesc": "Copy this to your MiniMOTD main.conf file",
+    "examples": "Example",
+    "selectFirst": "Select some text first to apply formatting"
   },
   "marketplace": {
     "badge": "Marketplace",

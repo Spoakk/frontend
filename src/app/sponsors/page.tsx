@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { IconHeart } from "@/components/ui/Icons";
 import { SectionCard } from "@/components/ui/Card";
 import DonateModal from "@/components/sponsors/DonateModal";
-
-const GITHUB_SPONSORS_URL = "https://github.com/sponsors/spoakk";
 
 const CRYPTO = [
   { name: "Ethereum",  address: "0xf09bA63D240Fb5144717CdD1b8375a1025F9Fa10" },
@@ -49,12 +48,19 @@ export default function SponsorsPage() {
         </SectionCard>
 
         <a
-          href={GITHUB_SPONSORS_URL}
+          href="https://www.buymeacoffee.com/tandstik"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full rounded-xl bg-pink-500/10 border border-pink-500/30 px-6 py-3.5 text-sm font-medium text-pink-400 hover:bg-pink-500/20 hover:border-pink-500/50 transition-colors mb-3"
+          className="flex items-center justify-center w-full mb-3"
         >
-          <IconHeart className="h-4 w-4" /> {t("sponsors.cta")}
+          <Image
+            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=tandstik&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff"
+            alt="Buy me a coffee"
+            width={217}
+            height={60}
+            className="hover:opacity-90 transition-opacity"
+            unoptimized
+          />
         </a>
 
         <SectionCard
@@ -75,7 +81,7 @@ export default function SponsorsPage() {
           <p className="text-xs text-zinc-500 mb-4">{t("sponsors.cryptoDesc")}</p>
           <div className="space-y-2">
             {CRYPTO.map(({ name, address }) => (
-              <div key={name} className="flex items-center gap-3 rounded-lg border border-white/6 bg-white/[0.02] px-3 py-2.5">
+              <div key={name} className="flex items-center gap-3 rounded-lg border border-white/6 bg-white/2 px-3 py-2.5">
                 <span className="text-xs font-medium text-zinc-400 w-20 shrink-0">{name}</span>
                 <span className="text-xs text-zinc-500 font-mono truncate flex-1">{address}</span>
                 <CopyButton textToCopy={address} successMessage={t("sponsors.cryptoCopied")} className="shrink-0 rounded-md border border-white/8 bg-white/5 px-2 py-1 text-xs text-zinc-500 hover:border-emerald-500/30 hover:text-emerald-400 transition-colors">

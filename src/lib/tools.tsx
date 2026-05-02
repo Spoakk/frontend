@@ -1,6 +1,6 @@
 import {
   IconServerJars, IconTerminal, IconWifi, IconSparkle, IconText,
-  IconNetherPortal, IconPlayerProfile, IconServerIcon, IconGiveCommand, IconSeedMap,
+  IconNetherPortal, IconPlayerProfile, IconServerIcon, IconGiveCommand, IconSeedMap, IconMOTD,
 } from "@/components/ui/Icons";
 
 export interface ToolDef {
@@ -20,6 +20,7 @@ export const TOOLS: ToolDef[] = [
   { key: "servericon",    href: "/tools/servericon",    icon: <IconServerIcon /> },
   { key: "givecmd",       href: "/tools/givecmd",       icon: <IconGiveCommand /> },
   { key: "seedmap",       href: "/tools/seedmap",       icon: <IconSeedMap /> },
+  { key: "motd",          href: "/tools/motd",          icon: <IconMOTD /> },
 ];
 
 export const QUICK_LINK_KEYS = ["serverjars", "bat", "mcping", "minimessage"] as const;

@@ -72,6 +72,17 @@ export default function ServerIconPage() {
     if (file) processFile(file);
   };
 
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    if (e.currentTarget === e.target) {
+      setDragging(false);
+    }
+  };
+
   const handleDownload = () => {
     if (!preview) return;
     const a = document.createElement("a");
@@ -84,7 +95,51 @@ export default function ServerIconPage() {
   const handleReset = () => { setPreview(null); setOriginal(null); setFileName(""); };
 
   return (
-    <div className="min-h-screen bg-[#0c0c0f] px-6 py-10 md:py-12 max-w-xl mx-auto">
+    <div 
+      className="relative min-h-screen bg-[#0c0c0f] px-6 py-10 md:py-12 max-w-xl mx-auto"
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <AnimatePresence>
+        {dragging && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm pointer-events-none"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="flex flex-col items-center gap-4 px-8 py-12 rounded-3xl border-2 border-dashed border-emerald-400 bg-emerald-500/10"
+            >
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ 
+                  duration: 0.6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="flex h-24 w-24 items-center justify-center rounded-2xl bg-emerald-500/20"
+              >
+                <IconUpload className="h-12 w-12 text-emerald-400" />
+              </motion.div>
+              <div className="text-center">
+                <p className="text-xl font-semibold text-white mb-1">
+                  {t("servericon.dropHere") || "Drop your image here"}
+                </p>
+                <p className="text-sm text-emerald-400">
+                  {t("servericon.dropFormats")}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
 
         <div className="mb-8">
@@ -98,29 +153,85 @@ export default function ServerIconPage() {
 
         <AnimatePresence mode="wait">
           {!preview ? (
-            <motion.div key="dropzone" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-              onDragLeave={() => setDragging(false)}
-              onDrop={handleDrop}
-              onClick={() => inputRef.current?.click()}
-              className={`cursor-pointer rounded-xl border-2 border-dashed transition-colors px-6 py-14 flex flex-col items-center gap-3 ${
-                dragging ? "border-emerald-500/60 bg-emerald-500/5" : "border-white/10 hover:border-white/20 bg-white/[0.02]"
-              }`}
+            <motion.div 
+              key="dropzone" 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
             >
-              <IconUpload className="h-10 w-10 text-zinc-600" />
-              <div className="text-center">
-                <p className="text-sm text-zinc-300">
-                  {t("servericon.dropText")} <span className="text-emerald-400">{t("servericon.dropBrowse")}</span>
-                </p>
-                <p className="text-xs text-zinc-600 mt-1">{t("servericon.dropFormats")}</p>
-              </div>
-              {processing && (
-                <div className="flex items-center gap-2 text-xs text-zinc-500">
-                  <IconSpinner className="h-3.5 w-3.5" />
-                  {t("servericon.processing")}
+              <div
+                onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); setDragging(true); }}
+                onDragLeave={(e) => { e.stopPropagation(); }}
+                onDrop={(e) => { e.stopPropagation(); handleDrop(e); }}
+                onClick={() => inputRef.current?.click()}
+                className="relative cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-300 px-6 py-16 flex flex-col items-center gap-4 overflow-hidden border-white/10 hover:border-emerald-500/40 hover:bg-white/[0.02] bg-white/[0.01]"
+              >
+                {dragging && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-500/10 pointer-events-none"
+                  />
+                )}
+                
+                <motion.div
+                  animate={{ 
+                    scale: dragging ? 1.1 : 1,
+                    rotate: dragging ? 5 : 0
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="relative flex h-20 w-20 items-center justify-center rounded-2xl transition-colors bg-white/5"
+                >
+                  <IconUpload className="h-10 w-10 transition-colors text-zinc-500" />
+                  {dragging && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute inset-0 rounded-2xl border-2 border-emerald-400 animate-pulse"
+                    />
+                  )}
+                </motion.div>
+
+                <div className="text-center relative z-10">
+                  <p className="text-base font-medium text-white mb-1">
+                    {t("servericon.dropText")}
+                  </p>
+                  <p className="text-sm text-zinc-400">
+                    {t("servericon.dropOr") || "or"} <span className="text-emerald-400 font-medium">{t("servericon.dropBrowse")}</span>
+                  </p>
+                  <p className="text-xs text-zinc-600 mt-2">{t("servericon.dropFormats")}</p>
                 </div>
-              )}
-              <input ref={inputRef} type="file" accept=".png,.jpg,.jpeg,.svg,.ico" className="hidden" onChange={handleFile} />
+
+                {processing && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20"
+                  >
+                    <IconSpinner className="h-4 w-4 text-emerald-400" />
+                    <span className="text-sm text-emerald-400">{t("servericon.processing")}</span>
+                  </motion.div>
+                )}
+
+                <input 
+                  ref={inputRef} 
+                  type="file" 
+                  accept=".png,.jpg,.jpeg,.svg,.ico" 
+                  className="hidden" 
+                  onChange={handleFile} 
+                />
+              </div>
+
+              <div className="mt-4 flex items-center gap-3 text-xs text-zinc-600">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>{t("servericon.feature1") || "Automatic 64×64 resize"}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>{t("servericon.feature2") || "High quality output"}</span>
+                </div>
+              </div>
             </motion.div>
           ) : (
             <motion.div key="result" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-5">

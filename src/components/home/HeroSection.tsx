@@ -42,9 +42,9 @@ function GitHubStars() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.35, duration: 0.5 }}
-      className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-4 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-sm hover:border-emerald-500/30 hover:bg-emerald-500/10 transition-all duration-300 group"
+      className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-5 py-2 text-sm font-medium text-emerald-300 backdrop-blur-sm hover:border-emerald-500/40 hover:bg-emerald-500/15 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 group"
     >
-      <IconStarFilled className="h-3.5 w-3.5 group-hover:scale-110 transition-transform" />
+      <IconStarFilled className="h-4 w-4 group-hover:scale-110 transition-transform" />
       <span>{stars.toLocaleString()}</span>
     </motion.a>
   );
@@ -57,20 +57,20 @@ export default function HeroSection() {
   const t = (key: string) => mounted ? rawT(key) : "";
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-16 pt-20 md:pt-16">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-20 pt-24 md:pt-20">
 
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/[0.06] blur-[120px]" />
-        <div className="absolute left-1/4 top-2/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-emerald-600/[0.04] blur-[80px]" />
-        <div className="absolute right-1/4 top-1/4 h-[250px] w-[250px] rounded-full bg-teal-500/[0.04] blur-[80px]" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0c0c0f] to-transparent" />
+        <div className="absolute left-1/2 top-1/3 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/[0.08] blur-[140px] animate-pulse" style={{ animationDuration: "4s" }} />
+        <div className="absolute left-1/4 top-2/3 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-emerald-600/[0.05] blur-[100px]" />
+        <div className="absolute right-1/4 top-1/4 h-[350px] w-[350px] rounded-full bg-teal-500/[0.05] blur-[100px]" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/80 to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
 
-        <motion.div {...fadeUp(0)} className="mb-8 flex justify-center gap-3 flex-wrap">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07] px-4 py-1.5 text-xs font-medium text-emerald-400 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
+        <motion.div {...fadeUp(0)} className="mb-10 flex justify-center gap-3 flex-wrap">
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-5 py-2 text-sm font-medium text-emerald-300 backdrop-blur-sm shadow-lg shadow-emerald-500/5">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50" aria-hidden="true" />
             {t("hero.badge")}
           </span>
           <GitHubStars />
@@ -78,7 +78,7 @@ export default function HeroSection() {
 
         <motion.h1
           {...fadeUp(0.08)}
-          className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.12]"
+          className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.1] mb-1"
         >
           {t("hero.title")}{" "}
           <span className="relative inline-block">
@@ -87,21 +87,21 @@ export default function HeroSection() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-              className="absolute -bottom-1 left-0 right-0 h-px origin-left bg-gradient-to-r from-emerald-500/60 via-emerald-400/40 to-transparent"
+              className="absolute -bottom-2 left-0 right-0 h-1 origin-left bg-gradient-to-r from-emerald-500/80 via-emerald-400/60 to-teal-400/40 rounded-full"
             />
           </span>
         </motion.h1>
 
         <motion.p
           {...fadeUp(0.18)}
-          className="mt-7 max-w-lg mx-auto text-base text-zinc-400 sm:text-lg leading-relaxed"
+          className="mt-8 max-w-2xl mx-auto text-lg text-zinc-400 sm:text-xl leading-relaxed"
         >
           {t("hero.description")}
         </motion.p>
 
         <motion.div
           {...fadeUp(0.28)}
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <Button variant="primary" href="/tools/serverjars">
             {t("hero.cta")}
@@ -113,24 +113,24 @@ export default function HeroSection() {
 
         <motion.div
           {...fadeUp(0.4)}
-          className="mt-16 grid grid-cols-2 gap-2.5 sm:grid-cols-4 items-stretch"
+          className="mt-20 grid grid-cols-2 gap-3 sm:grid-cols-4 items-stretch"
         >
           {quickLinks.map((tool, i) => (
             <motion.div
               key={tool.key}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 + i * 0.07, duration: 0.5, type: "spring", stiffness: 60 }}
+              transition={{ delay: 0.45 + i * 0.08, duration: 0.6, type: "spring", stiffness: 70 }}
             >
-              <Card href={tool.href} glow className="h-full p-4">
+              <Card href={tool.href} glow className="h-full p-5 hover:scale-[1.02] transition-transform duration-300">
                 <div className="relative flex flex-col">
-                  <div className="mb-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-zinc-400 group-hover:border-emerald-500/20 group-hover:text-emerald-400 transition-all duration-300">
+                  <div className="mb-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] text-zinc-400 group-hover:border-emerald-500/30 group-hover:from-emerald-500/10 group-hover:to-emerald-500/5 group-hover:text-emerald-400 transition-all duration-300 shadow-sm">
                     {tool.icon}
                   </div>
-                  <p className="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors duration-200 leading-snug">
+                  <p className="text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors duration-200 leading-snug mb-1.5">
                     {t(`nav.${tool.key}`)}
                   </p>
-                  <p className="mt-1 text-xs text-zinc-600 group-hover:text-zinc-500 transition-colors duration-200 leading-snug line-clamp-2">
+                  <p className="text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-200 leading-relaxed line-clamp-2">
                     {t(`quickLinks.${tool.key}`)}
                   </p>
                 </div>
@@ -142,11 +142,11 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-16 flex justify-center"
+          transition={{ delay: 1.3, duration: 0.7 }}
+          className="mt-20 flex justify-center"
         >
-          <div className="flex flex-col items-center gap-1.5 text-zinc-700">
-            <div className="h-8 w-px bg-gradient-to-b from-transparent via-zinc-700 to-transparent animate-pulse" />
+          <div className="flex flex-col items-center gap-2 text-zinc-700">
+            <div className="h-10 w-px bg-gradient-to-b from-transparent via-zinc-700/80 to-transparent animate-pulse" style={{ animationDuration: "2s" }} />
           </div>
         </motion.div>
 
