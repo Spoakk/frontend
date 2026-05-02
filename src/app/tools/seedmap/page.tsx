@@ -11,43 +11,45 @@ import Select from "@/components/ui/Select";
 
 const TILE_PX = 128;
 const TILE_BLK = TILE_PX * 4;
-const FETCH_DEBOUNCE_MS = 150;
-const TILE_CACHE_MAX = 200;
+const FETCH_DEBOUNCE_MS = 80;
+const TILE_CACHE_MAX = 600;
+const MAX_CONCURRENT_FETCHES = 12;
+const STRUCTURE_REFETCH_DISTANCE = 2048;
 
 type Structure = { kind: string; label: string; color: string; x: number; z: number };
 interface VP { cx: number; cz: number; zoom: number }
 type TileState = { status: "loading" | "ready" | "error"; bitmap?: ImageBitmap; lastAccessed?: number };
 
 const BC: Record<number, [number, number, number]> = {
-  0:[0,0,112],1:[141,179,96],2:[250,148,24],3:[96,96,96],4:[5,102,33],
-  5:[11,106,95],6:[7,249,178],7:[0,0,255],8:[87,37,38],9:[128,128,255],
-  10:[112,112,214],11:[160,160,255],12:[255,255,255],13:[160,160,160],
-  14:[255,0,255],15:[160,0,255],16:[250,222,85],17:[210,95,18],
-  18:[34,85,28],19:[22,57,51],20:[114,120,154],21:[80,123,10],
-  22:[44,66,5],23:[96,147,15],24:[0,0,48],25:[162,162,132],
-  26:[250,240,192],27:[48,116,68],28:[31,95,50],29:[64,81,26],
-  30:[49,85,74],31:[36,63,54],32:[89,102,81],33:[69,79,62],
-  34:[91,115,82],35:[189,178,95],36:[167,157,100],37:[217,69,21],
-  38:[176,151,101],39:[202,140,101],40:[75,75,171],41:[201,201,89],
-  42:[181,181,54],43:[112,112,204],44:[0,0,172],45:[0,0,144],
-  46:[32,32,112],47:[0,0,80],48:[0,0,64],49:[32,32,56],50:[64,64,144],
-  127:[0,0,0],129:[181,219,136],130:[255,188,64],131:[136,136,136],
-  132:[45,142,73],133:[51,146,135],134:[47,255,218],140:[180,220,220],
-  149:[120,163,50],151:[136,187,55],155:[88,156,108],156:[71,135,90],
-  157:[104,121,66],158:[89,125,114],160:[129,142,121],161:[109,119,102],
-  162:[131,155,122],163:[229,218,135],164:[207,197,140],165:[255,109,61],
-  166:[216,191,141],167:[242,180,141],168:[132,149,0],169:[92,108,4],
-  170:[77,58,46],171:[152,26,17],172:[73,144,123],173:[100,95,99],
-  174:[78,48,18],175:[40,60,0],177:[96,164,69],178:[71,114,108],
-  179:[196,196,196],180:[220,220,200],181:[176,179,206],182:[123,143,116],
-  183:[3,31,41],184:[44,204,142],185:[255,145,200],186:[105,109,149],
+  0: [0, 0, 112], 1: [141, 179, 96], 2: [250, 148, 24], 3: [96, 96, 96], 4: [5, 102, 33],
+  5: [11, 106, 95], 6: [7, 249, 178], 7: [0, 0, 255], 8: [87, 37, 38], 9: [128, 128, 255],
+  10: [112, 112, 214], 11: [160, 160, 255], 12: [255, 255, 255], 13: [160, 160, 160],
+  14: [255, 0, 255], 15: [160, 0, 255], 16: [250, 222, 85], 17: [210, 95, 18],
+  18: [34, 85, 28], 19: [22, 57, 51], 20: [114, 120, 154], 21: [80, 123, 10],
+  22: [44, 66, 5], 23: [96, 147, 15], 24: [0, 0, 48], 25: [162, 162, 132],
+  26: [250, 240, 192], 27: [48, 116, 68], 28: [31, 95, 50], 29: [64, 81, 26],
+  30: [49, 85, 74], 31: [36, 63, 54], 32: [89, 102, 81], 33: [69, 79, 62],
+  34: [91, 115, 82], 35: [189, 178, 95], 36: [167, 157, 100], 37: [217, 69, 21],
+  38: [176, 151, 101], 39: [202, 140, 101], 40: [75, 75, 171], 41: [201, 201, 89],
+  42: [181, 181, 54], 43: [112, 112, 204], 44: [0, 0, 172], 45: [0, 0, 144],
+  46: [32, 32, 112], 47: [0, 0, 80], 48: [0, 0, 64], 49: [32, 32, 56], 50: [64, 64, 144],
+  127: [0, 0, 0], 129: [181, 219, 136], 130: [255, 188, 64], 131: [136, 136, 136],
+  132: [45, 142, 73], 133: [51, 146, 135], 134: [47, 255, 218], 140: [180, 220, 220],
+  149: [120, 163, 50], 151: [136, 187, 55], 155: [88, 156, 108], 156: [71, 135, 90],
+  157: [104, 121, 66], 158: [89, 125, 114], 160: [129, 142, 121], 161: [109, 119, 102],
+  162: [131, 155, 122], 163: [229, 218, 135], 164: [207, 197, 140], 165: [255, 109, 61],
+  166: [216, 191, 141], 167: [242, 180, 141], 168: [132, 149, 0], 169: [92, 108, 4],
+  170: [77, 58, 46], 171: [152, 26, 17], 172: [73, 144, 123], 173: [100, 95, 99],
+  174: [78, 48, 18], 175: [40, 60, 0], 177: [96, 164, 69], 178: [71, 114, 108],
+  179: [196, 196, 196], 180: [220, 220, 200], 181: [176, 179, 206], 182: [123, 143, 116],
+  183: [3, 31, 41], 184: [44, 204, 142], 185: [255, 145, 200], 186: [105, 109, 149],
 };
 
 function biomesToImageData(ids: Int16Array, size: number): ImageData {
   const data = new Uint8ClampedArray(size * size * 4);
   for (let i = 0; i < size * size; i++) {
     const c = BC[ids[i]] ?? [30, 30, 30];
-    data[i*4]=c[0]; data[i*4+1]=c[1]; data[i*4+2]=c[2]; data[i*4+3]=255;
+    data[i * 4] = c[0]; data[i * 4 + 1] = c[1]; data[i * 4 + 2] = c[2]; data[i * 4 + 3] = 255;
   }
   return new ImageData(data, size, size);
 }
@@ -67,17 +69,21 @@ export default function SeedMapPage() {
   const [hoverCoord, setHoverCoord] = useState<{ x: number; z: number } | null>(null);
   const [isActive, setIsActive] = useState(false);
 
-  const vp         = useRef<VP>({ cx: 0, cz: 0, zoom: 2 });
-  const tileCache  = useRef(new Map<string, TileState>());
-  const activeRef  = useRef(false);
-  const seedRef    = useRef("");
-  const verRef     = useRef("");
-  const structs    = useRef<Structure[]>([]);
-  const showStRef  = useRef(true);
-  const raf        = useRef(0);
+  const vp = useRef<VP>({ cx: 0, cz: 0, zoom: 2 });
+  const tileCache = useRef(new Map<string, TileState>());
+  const activeRef = useRef(false);
+  const seedRef = useRef("");
+  const verRef = useRef("");
+  const structs = useRef<Structure[]>([]);
+  const showStRef = useRef(true);
+  const raf = useRef(0);
   const fetchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const drag       = useRef(false);
-  const lastPt     = useRef({ x: 0, y: 0 });
+  const drag = useRef(false);
+  const lastPt = useRef({ x: 0, y: 0 });
+  const abortCtrl = useRef<AbortController | null>(null);
+  const inflightCount = useRef(0);
+  const fetchQueue = useRef<Array<{ key: string; bx: number; bz: number; s: string; ver: string }>>([])
+  const structRegion = useRef<{ x: number; z: number } | null>(null);
 
   useEffect(() => { seedRef.current = seed; }, [seed]);
   useEffect(() => { verRef.current = version; }, [version]);
@@ -92,7 +98,7 @@ export default function SeedMapPage() {
         setVersion(data.versions[0]);
         verRef.current = data.versions[0];
       }
-    }).catch(() => {}).finally(() => setLoadingVersions(false));
+    }).catch(() => { }).finally(() => setLoadingVersions(false));
   }, []);
 
   const b2c = (bx: number, bz: number, W: number, H: number, v: VP) => ({
@@ -100,26 +106,50 @@ export default function SeedMapPage() {
     pz: (bz - v.cz) * v.zoom / 4 + H / 2,
   });
 
-  const fetchTile = useCallback((key: string, bx: number, bz: number, s: string, ver: string) => {
-    const url = `${config.apiUrl}/seedmap/tile?seed=${encodeURIComponent(s)}&x=${bx}&z=${bz}&size=${TILE_PX}&version=${encodeURIComponent(ver)}`;
-    fetch(url)
-      .then(r => { if (!r.ok) throw new Error(); return r.arrayBuffer(); })
-      .then(buf => createImageBitmap(biomesToImageData(new Int16Array(buf), TILE_PX)))
-      .then(bitmap => {
-        if (tileCache.current.size >= TILE_CACHE_MAX) {
-          let oldestKey: string | null = null, oldestTime = Infinity;
-          for (const [k, t] of tileCache.current) {
-            const t2 = t.lastAccessed ?? 0;
-            if (t2 < oldestTime) { oldestTime = t2; oldestKey = k; }
-          }
-          if (oldestKey) { tileCache.current.get(oldestKey)?.bitmap?.close(); tileCache.current.delete(oldestKey); }
-        }
-        tileCache.current.set(key, { status: "ready", bitmap, lastAccessed: Date.now() });
-        cancelAnimationFrame(raf.current);
-        raf.current = requestAnimationFrame(drawOnly);
-      })
-      .catch(() => tileCache.current.set(key, { status: "error" }));
+  const evictOldTiles = useCallback(() => {
+    while (tileCache.current.size >= TILE_CACHE_MAX) {
+      let oldestKey: string | null = null, oldestTime = Infinity;
+      for (const [k, t] of tileCache.current) {
+        const t2 = t.lastAccessed ?? 0;
+        if (t2 < oldestTime) { oldestTime = t2; oldestKey = k; }
+      }
+      if (oldestKey) { tileCache.current.get(oldestKey)?.bitmap?.close(); tileCache.current.delete(oldestKey); }
+      else break;
+    }
+  }, []);
+
+  const processQueue = useCallback(() => {
+    while (inflightCount.current < MAX_CONCURRENT_FETCHES && fetchQueue.current.length > 0) {
+      const item = fetchQueue.current.shift()!;
+      const existing = tileCache.current.get(item.key);
+      if (existing && existing.status !== "loading") continue;
+
+      inflightCount.current++;
+      const signal = abortCtrl.current?.signal;
+      const url = `${config.apiUrl}/seedmap/tile?seed=${encodeURIComponent(item.s)}&x=${item.bx}&z=${item.bz}&size=${TILE_PX}&version=${encodeURIComponent(item.ver)}`;
+      fetch(url, { signal })
+        .then(r => { if (!r.ok) throw new Error(); return r.arrayBuffer(); })
+        .then(buf => createImageBitmap(biomesToImageData(new Int16Array(buf), TILE_PX)))
+        .then(bitmap => {
+          evictOldTiles();
+          tileCache.current.set(item.key, { status: "ready", bitmap, lastAccessed: Date.now() });
+          cancelAnimationFrame(raf.current);
+          raf.current = requestAnimationFrame(drawOnly);
+        })
+        .catch(() => {
+          if (!signal?.aborted) tileCache.current.set(item.key, { status: "error" });
+        })
+        .finally(() => {
+          inflightCount.current--;
+          processQueue();
+        });
+    }
   }, []); // eslint-disable-line
+
+  const fetchTile = useCallback((key: string, bx: number, bz: number, s: string, ver: string) => {
+    fetchQueue.current.push({ key, bx, bz, s, ver });
+    processQueue();
+  }, [processQueue]);
 
   function drawOnly() {
     const canvas = canvasRef.current;
@@ -202,6 +232,28 @@ export default function SeedMapPage() {
     }
   }
 
+  const fetchStructures = useCallback(async (s: string, ver: string, cx = 0, cz = 0, radius = 8192) => {
+    try {
+      const data = await api.seedmapStructures(s, cx, cz, radius, ver);
+      // Merge with existing structures, deduplicate by position
+      setStructures(prev => {
+        const existing = new Set(prev.map(st => `${st.x},${st.z}`));
+        const merged = [...prev];
+        for (const st of data) {
+          const k = `${st.x},${st.z}`;
+          if (!existing.has(k)) {
+            merged.push(st);
+            existing.add(k);
+          }
+        }
+        structs.current = merged;
+        return merged;
+      });
+      cancelAnimationFrame(raf.current);
+      raf.current = requestAnimationFrame(drawOnly);
+    } catch { }
+  }, []); // eslint-disable-line
+
   const scheduleFetch = useCallback(() => {
     if (fetchTimer.current) clearTimeout(fetchTimer.current);
     fetchTimer.current = setTimeout(() => {
@@ -217,17 +269,38 @@ export default function SeedMapPage() {
       const tz0 = Math.floor((v.cz - halfBH) / TILE_BLK) * TILE_BLK;
       const tx1 = Math.ceil((v.cx + halfBW) / TILE_BLK) * TILE_BLK;
       const tz1 = Math.ceil((v.cz + halfBH) / TILE_BLK) * TILE_BLK;
+
+      abortCtrl.current?.abort();
+      abortCtrl.current = new AbortController();
+      fetchQueue.current = [];
+      inflightCount.current = 0;
+
+      const needed: Array<{ key: string; bx: number; bz: number; dist: number }> = [];
       for (let bx = tx0; bx <= tx1; bx += TILE_BLK) {
         for (let bz = tz0; bz <= tz1; bz += TILE_BLK) {
           const key = `${s}|${ver}|${bx}|${bz}`;
           if (!tileCache.current.has(key)) {
-            tileCache.current.set(key, { status: "loading" });
-            fetchTile(key, bx, bz, s, ver);
+            const dx = bx + TILE_BLK / 2 - v.cx;
+            const dz = bz + TILE_BLK / 2 - v.cz;
+            needed.push({ key, bx, bz, dist: dx * dx + dz * dz });
           }
         }
       }
+
+      needed.sort((a, b) => a.dist - b.dist);
+      for (const { key, bx, bz } of needed) {
+        tileCache.current.set(key, { status: "loading" });
+        fetchTile(key, bx, bz, s, ver);
+      }
+
+      const sr = structRegion.current;
+      if (!sr || Math.abs(v.cx - sr.x) > STRUCTURE_REFETCH_DISTANCE || Math.abs(v.cz - sr.z) > STRUCTURE_REFETCH_DISTANCE) {
+        const viewRadius = Math.max(Math.round(halfBW), Math.round(halfBH), 2048);
+        structRegion.current = { x: Math.round(v.cx), z: Math.round(v.cz) };
+        fetchStructures(s, ver, Math.round(v.cx), Math.round(v.cz), Math.min(viewRadius * 2, 16384));
+      }
     }, FETCH_DEBOUNCE_MS);
-  }, [fetchTile]);
+  }, [fetchTile, fetchStructures]);
 
   const scheduleDraw = useCallback(() => {
     cancelAnimationFrame(raf.current);
@@ -270,15 +343,6 @@ export default function SeedMapPage() {
     return () => canvas.removeEventListener("wheel", onWheel);
   }, [scheduleDraw]);
 
-  const fetchStructures = useCallback(async (s: string, ver: string) => {
-    try {
-      const data = await api.seedmapStructures(s, 0, 0, 4096, ver);
-      setStructures(data);
-      structs.current = data;
-      cancelAnimationFrame(raf.current);
-      raf.current = requestAnimationFrame(drawOnly);
-    } catch {}
-  }, []); // eslint-disable-line
 
   const generate = useCallback(async () => {
     const s = seed.trim().slice(0, 64);
@@ -286,18 +350,22 @@ export default function SeedMapPage() {
     setLoading(true);
     setError(null);
     if (fetchTimer.current) clearTimeout(fetchTimer.current);
+    abortCtrl.current?.abort();
+    fetchQueue.current = [];
+    inflightCount.current = 0;
     tileCache.current.forEach(t => t.bitmap?.close());
     tileCache.current.clear();
     vp.current = { cx: 0, cz: 0, zoom: 2 };
     setStructures([]);
     structs.current = [];
+    structRegion.current = { x: 0, z: 0 };
     activeRef.current = true;
     setIsActive(true);
     seedRef.current = s;
     verRef.current = version;
     try {
       scheduleDraw();
-      await fetchStructures(s, version);
+      await fetchStructures(s, version, 0, 0, 8192);
     } catch {
       setError(t("seedmap.error"));
     } finally {
@@ -345,7 +413,7 @@ export default function SeedMapPage() {
           </span>
           <h1 className="text-2xl font-bold text-white">{t("seedmap.title")}</h1>
           <p className="mt-1 text-sm text-zinc-500">{t("seedmap.description")}</p>
-          
+
           <div className="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/5 backdrop-blur-sm px-4 py-3">
             <div className="flex items-start gap-3">
               <span className="text-amber-400 text-lg shrink-0">⚠️</span>
@@ -394,11 +462,10 @@ export default function SeedMapPage() {
                 cancelAnimationFrame(raf.current);
                 raf.current = requestAnimationFrame(drawOnly);
               }}
-              className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors ${
-                showStructures
-                  ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-400"
-                  : "border-white/10 bg-white/5 text-zinc-400 hover:text-white"
-              }`}
+              className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors ${showStructures
+                ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-400"
+                : "border-white/10 bg-white/5 text-zinc-400 hover:text-white"
+                }`}
             >
               {t("seedmap.structures")}
             </button>

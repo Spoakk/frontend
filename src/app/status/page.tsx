@@ -28,12 +28,12 @@ const SERVICES: ServiceCheck[] = [
   },
   {
     key: "paper",
-    url: "/serverjars/paper/1.21.11/builds",
+    url: "/serverjars/paper/1.21.1/builds",
     validate: (d) => Array.isArray((d as { builds?: unknown[] })?.builds),
   },
   {
     key: "leaf",
-    url: "/serverjars/leaf/1.21.11/builds",
+    url: "/serverjars/leaf/1.21.4/builds",
     validate: (d) => Array.isArray((d as { builds?: unknown[] })?.builds),
   },
   {
@@ -80,11 +80,10 @@ async function checkService(svc: ServiceCheck): Promise<CheckResult> {
 
 function StatusDot({ status }: { status: Status }) {
   return (
-    <span className={`inline-block h-2.5 w-2.5 rounded-full shrink-0 ${
-      status === "ok"      ? "bg-emerald-400" :
-      status === "error"   ? "bg-red-500" :
-      "bg-zinc-600 animate-pulse"
-    }`} />
+    <span className={`inline-block h-2.5 w-2.5 rounded-full shrink-0 ${status === "ok" ? "bg-emerald-400" :
+      status === "error" ? "bg-red-500" :
+        "bg-zinc-600 animate-pulse"
+      }`} />
   );
 }
 
@@ -124,8 +123,8 @@ export default function StatusPage() {
   const anyError = values.some(r => r.status === "error");
   const overallStatus: Status =
     values.length === 0 ? "checking" :
-    anyError ? "error" :
-    allOk ? "ok" : "checking";
+      anyError ? "error" :
+        allOk ? "ok" : "checking";
 
   return (
     <div className="min-h-screen bg-[#0c0c0f] px-6 py-10 md:py-12 max-w-2xl mx-auto">
@@ -140,21 +139,19 @@ export default function StatusPage() {
           <p className="mt-1 text-sm text-zinc-500">{t("status.description")}</p>
         </div>
 
-        <div className={`rounded-xl border px-5 py-4 mb-6 flex items-center gap-3 ${
-          overallStatus === "ok"    ? "border-emerald-500/30 bg-emerald-500/10" :
+        <div className={`rounded-xl border px-5 py-4 mb-6 flex items-center gap-3 ${overallStatus === "ok" ? "border-emerald-500/30 bg-emerald-500/10" :
           overallStatus === "error" ? "border-red-500/30 bg-red-500/10" :
-          "border-white/8 bg-white/[0.02]"
-        }`}>
+            "border-white/8 bg-white/[0.02]"
+          }`}>
           <StatusDot status={overallStatus} />
           <div className="flex-1">
-            <p className={`text-sm font-medium ${
-              overallStatus === "ok"    ? "text-emerald-400" :
+            <p className={`text-sm font-medium ${overallStatus === "ok" ? "text-emerald-400" :
               overallStatus === "error" ? "text-red-400" :
-              "text-zinc-400"
-            }`}>
-              {overallStatus === "ok"    ? t("status.allOperational") :
-               overallStatus === "error" ? t("status.degraded") :
-               t("status.checking")}
+                "text-zinc-400"
+              }`}>
+              {overallStatus === "ok" ? t("status.allOperational") :
+                overallStatus === "error" ? t("status.degraded") :
+                  t("status.checking")}
             </p>
             {lastChecked && (
               <p className="text-xs text-zinc-600 mt-0.5">
